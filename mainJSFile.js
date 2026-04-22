@@ -1,7 +1,9 @@
+// Test
+
 let certificateLookupCache = {
   labs: [],
   descriptors: [],
-  supplements: [],
+  supplements: []
 };
 
 let certificateFiles = new Map();
@@ -12,19 +14,20 @@ let speciesMap = {};
 let isApplying = false;
 
 document.addEventListener("DOMContentLoaded", function () {
+
   /* ================= SECTION VISIBILITY ================= */
 
   function getElements() {
     return {
-      itemTypeEl: document.getElementById("itemType"),
-      colorStoneSection: document.getElementById("colorStoneSection"),
-      diamondSection: document.getElementById("diamondSection"),
-      jewelleryWrapper: document.getElementById("jewelleryWrapper"),
-      pricingSection: document.getElementById("pricingSection"),
-      Dimensionssection: document.getElementById("Dimensionssection"),
-      neededcertificatesec: document.getElementById("neededcertificatesec"),
-      certificateuploadsec: document.getElementById("certificateuploadsec"),
-      partnershipsec: document.getElementById("partnershipsec"),
+      itemTypeEl           : document.getElementById("itemType"),
+      colorStoneSection    : document.getElementById("colorStoneSection"),
+      diamondSection       : document.getElementById("diamondSection"),
+      jewelleryWrapper     : document.getElementById("jewelleryWrapper"),
+      pricingSection       : document.getElementById("pricingSection"),
+      Dimensionssection    : document.getElementById("Dimensionssection"),
+      neededcertificatesec : document.getElementById("neededcertificatesec"),
+      certificateuploadsec : document.getElementById("certificateuploadsec"),
+      partnershipsec       : document.getElementById("partnershipsec"),
     };
   }
 
@@ -41,15 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
     isApplying = true;
 
     const {
-      itemTypeEl,
-      colorStoneSection,
-      diamondSection,
-      jewelleryWrapper,
-      pricingSection,
-      Dimensionssection,
-      neededcertificatesec,
-      certificateuploadsec,
-      partnershipsec,
+      itemTypeEl, colorStoneSection, diamondSection,
+      jewelleryWrapper, pricingSection, Dimensionssection,
+      neededcertificatesec, certificateuploadsec, partnershipsec
     } = getElements();
 
     hide(colorStoneSection);
@@ -61,10 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     hide(certificateuploadsec);
     hide(partnershipsec);
 
-    if (!itemTypeEl) {
-      isApplying = false;
-      return;
-    }
+    if (!itemTypeEl) { isApplying = false; return; }
 
     const selectedValue = itemTypeEl.value.trim();
     // console.log("selectedValue:", selectedValue);
@@ -76,18 +70,18 @@ document.addEventListener("DOMContentLoaded", function () {
       show(neededcertificatesec);
       show(certificateuploadsec);
       show(partnershipsec);
-    } else if (selectedValue === "Diamond") {
+    }
+    else if (selectedValue === "Diamond") {
       show(diamondSection);
       show(certificateuploadsec);
       show(neededcertificatesec);
       show(partnershipsec);
-    } else if (selectedValue === "Jewellery") {
+    }
+    else if (selectedValue === "Jewellery") {
       show(jewelleryWrapper);
     }
 
-    setTimeout(() => {
-      isApplying = false;
-    }, 50);
+    setTimeout(() => { isApplying = false; }, 50);
   }
 
   setTimeout(applyVisibility, 300);
@@ -100,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const observer = new MutationObserver(function () {
     if (document.getElementById("itemType")) {
-      setTimeout(applyVisibility, 100);
+        setTimeout(applyVisibility, 100);
     }
   });
 
@@ -108,56 +102,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ================= LOOKUP LOADS ================= */
 
-  typeof loadUnitLookup === "function" && loadUnitLookup();
-  typeof loadTreatmentLookup === "function" && loadTreatmentLookup();
-  typeof loadShapeLookup === "function" && loadShapeLookup();
-  typeof loadSpeciesLookup === "function" && loadSpeciesLookup();
-  typeof loadSurfaceLookup === "function" && loadSurfaceLookup();
-  typeof loadCountryDropdown === "function" && loadCountryDropdown();
-  typeof loadCountrycutDropdown === "function" && loadCountrycutDropdown();
-  typeof loadDiaColorLookup === "function" && loadDiaColorLookup();
-  typeof loadDiaClarityLookup === "function" && loadDiaClarityLookup();
-  typeof loadDiaCutLookup === "function" && loadDiaCutLookup();
-  typeof loadDiaPolishLookup === "function" && loadDiaPolishLookup();
-  typeof loadDiaSymmetryLookup === "function" && loadDiaSymmetryLookup();
-  typeof loadDiaCuletLookup === "function" && loadDiaCuletLookup();
-  typeof loadDiaFluorescenceLookup === "function" &&
-    loadDiaFluorescenceLookup();
-  typeof loadDiaFluorescenceColorLookup === "function" &&
-    loadDiaFluorescenceColorLookup();
-  typeof loaddiaShapeLookup === "function" && loaddiaShapeLookup();
-  typeof loadPartnerLookup === "function" && loadPartnerLookup();
-  typeof loadPartnerdataLookup === "function" && loadPartnerdataLookup();
-  typeof initTotalCalculation === "function" && initTotalCalculation();
-  typeof initRapportPriceTriggers === "function" && initRapportPriceTriggers();
-  typeof loadCertificateSubformLookups === "function" &&
-    loadCertificateSubformLookups();
+  typeof loadUnitLookup               === "function" && loadUnitLookup();
+  typeof loadTreatmentLookup          === "function" && loadTreatmentLookup();
+  typeof loadShapeLookup              === "function" && loadShapeLookup();
+  typeof loadSpeciesLookup            === "function" && loadSpeciesLookup();
+  typeof loadSurfaceLookup            === "function" && loadSurfaceLookup();
+  typeof loadCountryDropdown          === "function" && loadCountryDropdown();
+  typeof loadCountrycutDropdown       === "function" && loadCountrycutDropdown();
+  typeof loadDiaColorLookup           === "function" && loadDiaColorLookup();
+  typeof loadDiaClarityLookup         === "function" && loadDiaClarityLookup();
+  typeof loadDiaCutLookup             === "function" && loadDiaCutLookup();
+  typeof loadDiaPolishLookup          === "function" && loadDiaPolishLookup();
+  typeof loadDiaSymmetryLookup        === "function" && loadDiaSymmetryLookup();
+  typeof loadDiaCuletLookup           === "function" && loadDiaCuletLookup();
+  typeof loadDiaFluorescenceLookup    === "function" && loadDiaFluorescenceLookup();
+  typeof loadDiaFluorescenceColorLookup === "function" && loadDiaFluorescenceColorLookup();
+  typeof loaddiaShapeLookup           === "function" && loaddiaShapeLookup();
+  typeof loadPartnerLookup            === "function" && loadPartnerLookup();
+  typeof loadPartnerdataLookup        === "function" && loadPartnerdataLookup();
+  typeof initTotalCalculation         === "function" && initTotalCalculation();
+  typeof initRapportPriceTriggers     === "function" && initRapportPriceTriggers();
+  typeof loadCertificateSubformLookups === "function" && loadCertificateSubformLookups();
 
   /* ================= COLOR STONE AUTO DESCRIPTION ================= */
 
   const treatmentEl = document.getElementById("treatment_lookup");
-  const speciesEl = document.getElementById("species_lookup");
-  const surfaceEl = document.getElementById("surface_lookup");
-  const shapeEl = document.getElementById("shape_lookup");
+  const speciesEl   = document.getElementById("species_lookup");
+  const surfaceEl   = document.getElementById("surface_lookup");
+  const shapeEl     = document.getElementById("shape_lookup");
   const shortDescEl = document.getElementById("cs_short_description");
-  const longDescEl = document.getElementById("cs_long_description");
+  const longDescEl  = document.getElementById("cs_long_description");
 
   function stoneupdateDescriptions() {
     const treatment = treatmentEl?.selectedOptions[0]?.text || "";
-    const species = speciesEl?.selectedOptions[0]?.text || "";
-    const surface = surfaceEl?.selectedOptions[0]?.text || "";
-    const shape = shapeEl?.selectedOptions[0]?.text || "";
-    const shortText = [treatment, species, surface, shape]
-      .filter(Boolean)
-      .join(" ");
-    const longText = [treatment, species, surface, shape]
-      .filter(Boolean)
-      .join(", ");
+    const species   = speciesEl?.selectedOptions[0]?.text   || "";
+    const surface   = surfaceEl?.selectedOptions[0]?.text   || "";
+    const shape     = shapeEl?.selectedOptions[0]?.text     || "";
+    const shortText = [treatment, species, surface, shape].filter(Boolean).join(" ");
+    const longText  = [treatment, species, surface, shape].filter(Boolean).join(", ");
     if (shortDescEl) shortDescEl.value = shortText;
-    if (longDescEl) longDescEl.value = longText;
+    if (longDescEl)  longDescEl.value  = longText;
   }
 
-  [treatmentEl, speciesEl, surfaceEl, shapeEl].forEach((el) => {
+  [treatmentEl, speciesEl, surfaceEl, shapeEl].forEach(el => {
     if (el) el.addEventListener("change", stoneupdateDescriptions);
   });
 
@@ -167,8 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function initTotalCalculation() {
     const weightField = document.getElementById("dia_weight");
-    const priceField = document.getElementById("price_per_carat");
-    const totalField = document.getElementById("total_price");
+    const priceField  = document.getElementById("price_per_carat");
+    const totalField  = document.getElementById("total_price");
 
     if (!weightField || !priceField || !totalField) {
       setTimeout(initTotalCalculation, 500);
@@ -177,8 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function calculateTotal() {
       const weight = parseFloat(weightField.value) || 0;
-      const price = parseFloat(priceField.value) || 0;
-      const total = weight * price;
+      const price  = parseFloat(priceField.value)  || 0;
+      const total  = weight * price;
       totalField.value = total ? total.toFixed(2) : "";
     }
 
@@ -190,59 +177,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ================= DIAMOND AUTO DESCRIPTION ================= */
 
-  const diashapeEl = document.getElementById("dia_shape");
-  const diacolorEl = document.getElementById("dia_color");
-  const diaclarityEl = document.getElementById("dia_clarity");
-  const diacutEl = document.getElementById("dia_cut");
-  const diapolishEl = document.getElementById("dia_polish");
-  const diasymmetryEl = document.getElementById("dia_symmetry");
-  const diaculetEl = document.getElementById("dia_culet");
-  const diafluorescenceEl = document.getElementById("dia_fluorescence");
-  const diafluorescencecolorEl = document.getElementById(
-    "dia_colour_fluorescence",
-  );
-  const diashortDescEl = document.getElementById("diashort_description");
-  const dialongDescEl = document.getElementById("dialong_description");
+  const diashapeEl             = document.getElementById("dia_shape");
+  const diacolorEl             = document.getElementById("dia_color");
+  const diaclarityEl           = document.getElementById("dia_clarity");
+  const diacutEl               = document.getElementById("dia_cut");
+  const diapolishEl            = document.getElementById("dia_polish");
+  const diasymmetryEl          = document.getElementById("dia_symmetry");
+  const diaculetEl             = document.getElementById("dia_culet");
+  const diafluorescenceEl      = document.getElementById("dia_fluorescence");
+  const diafluorescencecolorEl = document.getElementById("dia_colour_fluorescence");
+  const diashortDescEl         = document.getElementById("diashort_description");
+  const dialongDescEl          = document.getElementById("dialong_description");
 
   function updateDescriptions() {
-    const diashape = diashapeEl?.selectedOptions[0]?.text || "";
-    const diacolor = diacolorEl?.selectedOptions[0]?.text || "";
-    const diaclarity = diaclarityEl?.selectedOptions[0]?.text || "";
-    const diacut = diacutEl?.selectedOptions[0]?.text || "";
-    const diapolish = diapolishEl?.selectedOptions[0]?.text || "";
-    const diasymmetry = diasymmetryEl?.selectedOptions[0]?.text || "";
-    const diaculet = diaculetEl?.selectedOptions[0]?.text || "";
-    const diafluorescence = diafluorescenceEl?.selectedOptions[0]?.text || "";
-    const diafluorescencecolor =
-      diafluorescencecolorEl?.selectedOptions[0]?.text || "";
+    const diashape             = diashapeEl?.selectedOptions[0]?.text             || "";
+    const diacolor             = diacolorEl?.selectedOptions[0]?.text             || "";
+    const diaclarity           = diaclarityEl?.selectedOptions[0]?.text           || "";
+    const diacut               = diacutEl?.selectedOptions[0]?.text               || "";
+    const diapolish            = diapolishEl?.selectedOptions[0]?.text            || "";
+    const diasymmetry          = diasymmetryEl?.selectedOptions[0]?.text          || "";
+    const diaculet             = diaculetEl?.selectedOptions[0]?.text             || "";
+    const diafluorescence      = diafluorescenceEl?.selectedOptions[0]?.text      || "";
+    const diafluorescencecolor = diafluorescencecolorEl?.selectedOptions[0]?.text || "";
 
-    const parts = [
-      diashape,
-      diacolor,
-      diaclarity,
-      diacut,
-      diapolish,
-      diasymmetry,
-      diaculet,
-      diafluorescence,
-      diafluorescencecolor,
-    ].filter(Boolean);
+    const parts = [diashape, diacolor, diaclarity, diacut, diapolish, diasymmetry, diaculet, diafluorescence, diafluorescencecolor].filter(Boolean);
     if (diashortDescEl) diashortDescEl.value = parts.join(" ");
-    if (dialongDescEl) dialongDescEl.value = parts.join(", ");
+    if (dialongDescEl)  dialongDescEl.value  = parts.join(", ");
   }
 
-  [
-    diashapeEl,
-    diacolorEl,
-    diaclarityEl,
-    shapeEl,
-    diacutEl,
-    diapolishEl,
-    diasymmetryEl,
-    diaculetEl,
-    diafluorescenceEl,
-    diafluorescencecolorEl,
-  ].forEach((el) => {
+  [diashapeEl, diacolorEl, diaclarityEl, shapeEl, diacutEl, diapolishEl, diasymmetryEl, diaculetEl, diafluorescenceEl, diafluorescencecolorEl].forEach(el => {
     if (el) el.addEventListener("change", updateDescriptions);
   });
 
@@ -251,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ================= DIAMOND IMAGE UPLOAD ================= */
 
   const diaInput = document.getElementById("dia_image");
-  const preview = document.getElementById("imagePreview");
+  const preview  = document.getElementById("imagePreview");
   const clearBtn = document.getElementById("clearImage");
 
   if (diaInput && preview && clearBtn) {
@@ -283,8 +246,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ================= STONE IMAGE UPLOAD ================= */
 
-  const stoneInput = document.getElementById("stone_image");
-  const stonePreview = document.getElementById("stoneImagePreview");
+  const stoneInput    = document.getElementById("stone_image");
+  const stonePreview  = document.getElementById("stoneImagePreview");
   const stoneClearBtn = document.getElementById("clearStoneImage");
 
   if (stoneInput) {
@@ -317,59 +280,44 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("imageText").style.display = "block";
     });
   }
+
 });
+
 
 /* ================= DIAMOND AUTO DESCRIPTION (GLOBAL) ================= */
 
-const diaShapeEl = document.getElementById("dia_shape");
-const diaColorEl = document.getElementById("dia_color");
-const diaClarityEl = document.getElementById("dia_clarity");
-const diaCutEl = document.getElementById("dia_cut");
-const diaPolishEl = document.getElementById("dia_polish");
-const diaSymmetryEl = document.getElementById("dia_symmetry");
-const diaCuletEl = document.getElementById("dia_culet");
+const diaShapeEl        = document.getElementById("dia_shape");
+const diaColorEl        = document.getElementById("dia_color");
+const diaClarityEl      = document.getElementById("dia_clarity");
+const diaCutEl          = document.getElementById("dia_cut");
+const diaPolishEl       = document.getElementById("dia_polish");
+const diaSymmetryEl     = document.getElementById("dia_symmetry");
+const diaCuletEl        = document.getElementById("dia_culet");
 const diaFluorescenceEl = document.getElementById("dia_fluorescence");
-const shortDescEl = document.getElementById("short_description");
-const longDescEl = document.getElementById("long_description");
+const shortDescEl       = document.getElementById("short_description");
+const longDescEl        = document.getElementById("long_description");
 
 function updateDiamondDescriptions() {
-  const shape = diaShapeEl?.selectedOptions[0]?.text || "";
-  const color = diaColorEl?.selectedOptions[0]?.text || "";
-  const clarity = diaClarityEl?.selectedOptions[0]?.text || "";
-  const cut = diaCutEl?.selectedOptions[0]?.text || "";
-  const polish = diaPolishEl?.selectedOptions[0]?.text || "";
-  const symmetry = diaSymmetryEl?.selectedOptions[0]?.text || "";
-  const culet = diaCuletEl?.selectedOptions[0]?.text || "";
+  const shape        = diaShapeEl?.selectedOptions[0]?.text        || "";
+  const color        = diaColorEl?.selectedOptions[0]?.text        || "";
+  const clarity      = diaClarityEl?.selectedOptions[0]?.text      || "";
+  const cut          = diaCutEl?.selectedOptions[0]?.text          || "";
+  const polish       = diaPolishEl?.selectedOptions[0]?.text       || "";
+  const symmetry     = diaSymmetryEl?.selectedOptions[0]?.text     || "";
+  const culet        = diaCuletEl?.selectedOptions[0]?.text        || "";
   const fluorescence = diaFluorescenceEl?.selectedOptions[0]?.text || "";
 
-  const parts = [
-    color,
-    clarity,
-    cut,
-    shape,
-    polish,
-    symmetry,
-    culet,
-    fluorescence,
-  ].filter(Boolean);
+  const parts = [color, clarity, cut, shape, polish, symmetry, culet, fluorescence].filter(Boolean);
   if (shortDescEl) shortDescEl.value = parts.join(" ");
-  if (longDescEl) longDescEl.value = parts.join(", ");
+  if (longDescEl)  longDescEl.value  = parts.join(", ");
 }
 
-[
-  diaShapeEl,
-  diaColorEl,
-  diaClarityEl,
-  diaCutEl,
-  diaPolishEl,
-  diaSymmetryEl,
-  diaCuletEl,
-  diaFluorescenceEl,
-].forEach((el) => {
+[diaShapeEl, diaColorEl, diaClarityEl, diaCutEl, diaPolishEl, diaSymmetryEl, diaCuletEl, diaFluorescenceEl].forEach(el => {
   if (el) el.addEventListener("change", updateDiamondDescriptions);
 });
 
 updateDiamondDescriptions();
+
 
 /* =================================================================================
    CERTIFICATE SUBFORM LOOKUPS
@@ -378,61 +326,41 @@ updateDiamondDescriptions();
 /* ─── LOAD ALL LOOKUPS (ONLY ONCE) ─── */
 function loadCertificateSubformLookups() {
   return Promise.all([
-    ZOHO.CREATOR.DATA.getRecords({
-      app_name: "feiny-app",
-      report_name: "All_Labs",
-    }),
-    ZOHO.CREATOR.DATA.getRecords({
-      app_name: "feiny-app",
-      report_name: "Lab_Descriptor_Report",
-    }),
-    ZOHO.CREATOR.DATA.getRecords({
-      app_name: "feiny-app",
-      report_name: "All_Laboratory_Supplements",
-    }),
+    ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "All_Labs" }),
+    ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Lab_Descriptor_Report" }),
+    ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "All_Laboratory_Supplements" })
   ])
-    .then(function ([labsRes, descriptorsRes, supplementsRes]) {
-      certificateLookupCache.labs = labsRes.data || [];
-      certificateLookupCache.descriptors = descriptorsRes.data || [];
-      certificateLookupCache.supplements = supplementsRes.data || [];
+  .then(function ([labsRes, descriptorsRes, supplementsRes]) {
+    certificateLookupCache.labs        = labsRes.data        || [];
+    certificateLookupCache.descriptors = descriptorsRes.data || [];
+    certificateLookupCache.supplements = supplementsRes.data || [];
 
-      // console.log("Certificate Lookups Loaded:",
-      //   certificateLookupCache.labs.length,        "labs |",
-      //   certificateLookupCache.descriptors.length, "descriptors |",
-      //   certificateLookupCache.supplements.length, "supplements"
-      // );
+    // console.log("Certificate Lookups Loaded:",
+    //   certificateLookupCache.labs.length,        "labs |",
+    //   certificateLookupCache.descriptors.length, "descriptors |",
+    //   certificateLookupCache.supplements.length, "supplements"
+    // );
 
-      const tableBody = document.getElementById("certificateBody");
-      if (!tableBody) return;
-      Array.from(tableBody.rows).forEach(function (row) {
-        populateRowSelects(row);
-      });
-    })
-    .catch(function (err) {
-      console.error("Certificate subform lookup error:", err);
+    const tableBody = document.getElementById("certificateBody");
+    if (!tableBody) return;
+    Array.from(tableBody.rows).forEach(function (row) {
+      populateRowSelects(row);
     });
+  })
+  .catch(function (err) {
+    console.error("Certificate subform lookup error:", err);
+  });
 }
 
 /* ─── POPULATE SELECTS IN A GIVEN ROW ─── */
 function populateRowSelects(row) {
-  const labSelect = row.querySelector(".cert-lab");
+  const labSelect     = row.querySelector(".cert-lab");
   const labDescSelect = row.querySelector(".cert-lab-desc");
-  const labSupSelect = row.querySelector(".cert-lab-sup");
+  const labSupSelect  = row.querySelector(".cert-lab-sup");
 
-  if (labSelect && labSelect.options.length <= 1)
-    fillSelect(labSelect, certificateLookupCache.labs, "Lab");
-  if (labDescSelect && labDescSelect.options.length <= 1)
-    fillSelect(
-      labDescSelect,
-      certificateLookupCache.descriptors,
-      "Lab_Descriptor",
-    );
-  if (labSupSelect && labSupSelect.options.length <= 1)
-    fillSelect(
-      labSupSelect,
-      certificateLookupCache.supplements,
-      "Laboratory_Supplement",
-    );
+  if (labSelect     && labSelect.options.length     <= 1) fillSelect(labSelect,     certificateLookupCache.labs,        "Lab");
+  if (labDescSelect && labDescSelect.options.length <= 1) fillSelect(labDescSelect, certificateLookupCache.descriptors, "Lab_Descriptor");
+  if (labSupSelect  && labSupSelect.options.length  <= 1) fillSelect(labSupSelect,  certificateLookupCache.supplements, "Laboratory_Supplement");
 }
 
 /* ─── FILL A SINGLE SELECT ─── */
@@ -442,7 +370,7 @@ function fillSelect(select, data, fieldName) {
   data.forEach(function (rec) {
     const opt = document.createElement("option");
     opt.value = rec.ID;
-    opt.text = rec[fieldName] || "";
+    opt.text  = rec[fieldName] || "";
     select.appendChild(opt);
   });
 }
@@ -475,239 +403,67 @@ function removeRow(btn) {
   btn.closest("tr").remove();
 }
 
+
 /* ================= COUNTRY DROPDOWNS ================= */
 
 function loadCountryDropdown() {
   const countries = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Belgium",
-    "Bhutan",
-    "Bolivia",
-    "Brazil",
-    "Bulgaria",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Chile",
-    "China",
-    "Colombia",
-    "Costa Rica",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Dominican Republic",
-    "Ecuador",
-    "Egypt",
-    "Estonia",
-    "Ethiopia",
-    "Finland",
-    "France",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Greenland",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kuwait",
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lithuania",
-    "Luxembourg",
-    "Malaysia",
-    "Maldives",
-    "Mexico",
-    "Mongolia",
-    "Morocco",
-    "Myanmar",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nigeria",
-    "North Korea",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Qatar",
-    "Romania",
-    "Russia",
-    "Saudi Arabia",
-    "Singapore",
-    "South Africa",
-    "South Korea",
-    "Spain",
-    "Sri Lanka",
-    "Sweden",
-    "Switzerland",
-    "Thailand",
-    "Turkey",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-    "Vietnam",
-    "Yemen",
-    "Zambia",
-    "Zimbabwe",
+    "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia",
+    "Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Belgium",
+    "Bhutan","Bolivia","Brazil","Bulgaria","Cambodia","Cameroon","Canada","Chile",
+    "China","Colombia","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic",
+    "Denmark","Dominican Republic","Ecuador","Egypt","Estonia","Ethiopia","Finland",
+    "France","Georgia","Germany","Ghana","Greece","Greenland","Hungary","Iceland",
+    "India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan",
+    "Jordan","Kazakhstan","Kenya","Kuwait","Laos","Latvia","Lebanon","Lithuania",
+    "Luxembourg","Malaysia","Maldives","Mexico","Mongolia","Morocco","Myanmar",
+    "Nepal","Netherlands","New Zealand","Nigeria","North Korea","Norway","Oman",
+    "Pakistan","Philippines","Poland","Portugal","Qatar","Romania","Russia",
+    "Saudi Arabia","Singapore","South Africa","South Korea","Spain","Sri Lanka",
+    "Sweden","Switzerland","Thailand","Turkey","Ukraine","United Arab Emirates",
+    "United Kingdom","United States","Uruguay","Uzbekistan","Vietnam","Yemen",
+    "Zambia","Zimbabwe"
   ];
   const select = document.getElementById("origin_country");
   if (!select) return;
   select.innerHTML = `<option value="">Select Country</option>`;
-  countries.forEach((country) => {
+  countries.forEach(country => {
     const option = document.createElement("option");
     option.value = country;
-    option.text = country;
+    option.text  = country;
     select.appendChild(option);
   });
 }
 
 function loadCountrycutDropdown() {
   const countries = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Belgium",
-    "Bhutan",
-    "Bolivia",
-    "Brazil",
-    "Bulgaria",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Chile",
-    "China",
-    "Colombia",
-    "Costa Rica",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Dominican Republic",
-    "Ecuador",
-    "Egypt",
-    "Estonia",
-    "Ethiopia",
-    "Finland",
-    "France",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Greenland",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kuwait",
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lithuania",
-    "Luxembourg",
-    "Malaysia",
-    "Maldives",
-    "Mexico",
-    "Mongolia",
-    "Morocco",
-    "Myanmar",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nigeria",
-    "North Korea",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Qatar",
-    "Romania",
-    "Russia",
-    "Saudi Arabia",
-    "Singapore",
-    "South Africa",
-    "South Korea",
-    "Spain",
-    "Sri Lanka",
-    "Sweden",
-    "Switzerland",
-    "Thailand",
-    "Turkey",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-    "Vietnam",
-    "Yemen",
-    "Zambia",
-    "Zimbabwe",
+    "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia",
+    "Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Belgium",
+    "Bhutan","Bolivia","Brazil","Bulgaria","Cambodia","Cameroon","Canada","Chile",
+    "China","Colombia","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic",
+    "Denmark","Dominican Republic","Ecuador","Egypt","Estonia","Ethiopia","Finland",
+    "France","Georgia","Germany","Ghana","Greece","Greenland","Hungary","Iceland",
+    "India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan",
+    "Jordan","Kazakhstan","Kenya","Kuwait","Laos","Latvia","Lebanon","Lithuania",
+    "Luxembourg","Malaysia","Maldives","Mexico","Mongolia","Morocco","Myanmar",
+    "Nepal","Netherlands","New Zealand","Nigeria","North Korea","Norway","Oman",
+    "Pakistan","Philippines","Poland","Portugal","Qatar","Romania","Russia",
+    "Saudi Arabia","Singapore","South Africa","South Korea","Spain","Sri Lanka",
+    "Sweden","Switzerland","Thailand","Turkey","Ukraine","United Arab Emirates",
+    "United Kingdom","United States","Uruguay","Uzbekistan","Vietnam","Yemen",
+    "Zambia","Zimbabwe"
   ];
   const select = document.getElementById("country_cut");
   if (!select) return;
   select.innerHTML = `<option value="">Select Country</option>`;
-  countries.forEach((country) => {
+  countries.forEach(country => {
     const option = document.createElement("option");
     option.value = country;
-    option.text = country;
+    option.text  = country;
     select.appendChild(option);
   });
 }
+
 
 /* ================= PARTNER LOOKUP ================= */
 
@@ -717,46 +473,40 @@ function loadPartnerLookup() {
   // console.log("Loading Partner Lookup...");
   ZOHO.CREATOR.DATA.getRecords({
     app_name: "feiny-app",
-    report_name: "All_Customers1",
+    report_name: "All_Customers1"
   })
-    .then(function (response) {
-      // console.log("Partner Response:", response);
-      if (!response.data || response.data.length === 0) {
-        console.warn("No Partner records found");
-        return;
-      }
-      partnerList = response.data;
-      populatePartnerDropdowns();
-    })
-    .catch(function (error) {
-      console.error("Partner lookup error:", error);
-      alert("Unable to load Partner lookup");
-    });
+  .then(function (response) {
+    // console.log("Partner Response:", response);
+    if (!response.data || response.data.length === 0) {
+      console.warn("No Partner records found");
+      return;
+    }
+    partnerList = response.data;
+    populatePartnerDropdowns();
+  })
+  .catch(function (error) {
+    console.error("Partner lookup error:", error);
+    alert("Unable to load Partner lookup");
+  });
 }
 
 function populatePartnerDropdowns() {
-  document
-    .querySelectorAll(".partnerlookup, .partnerdatalookup")
-    .forEach(function (dropdown) {
-      const selectedValue = dropdown.value;
-      dropdown.innerHTML = '<option value="">Select Partner</option>';
+  document.querySelectorAll('.partnerlookup, .partnerdatalookup').forEach(function (dropdown) {
+    const selectedValue = dropdown.value;
+    dropdown.innerHTML = '<option value="">Select Partner</option>';
 
-      partnerList.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text =
-          record.LegalName ||
-          record.Legal_Name ||
-          record.zc_display_value ||
-          "No Name";
+    partnerList.forEach(function (record) {
+      const option = document.createElement('option');
+      option.value = record.ID;
+      option.text = record.LegalName || record.Legal_Name || record.zc_display_value || "No Name";
 
-        if (selectedValue == record.ID) {
-          option.selected = true;
-        }
+      if (selectedValue == record.ID) {
+        option.selected = true;
+      }
 
-        dropdown.appendChild(option);
-      });
+      dropdown.appendChild(option);
     });
+  });
 }
 
 function addPartnerRow() {
@@ -786,342 +536,286 @@ document.addEventListener("DOMContentLoaded", function () {
   loadPartnerLookup();
 });
 
+
 /* ================= UNIT LOOKUP ================= */
 function loadUnitLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Unit" })
-    .then(function (response) {
-      const unitSelect = document.getElementById("unit_lookup");
-      if (!unitSelect) return;
-      unitSelect.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        unitSelect.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Unit lookup error:", error);
+  .then(function (response) {
+    const unitSelect = document.getElementById("unit_lookup");
+    if (!unitSelect) return;
+    unitSelect.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      unitSelect.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Unit lookup error:", error); });
 }
 
 /* ================= SURFACE LOOKUP ================= */
 function loadSurfaceLookup() {
-  ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
-    report_name: "All_Surface",
-  })
-    .then(function (response) {
-      const unitSelect = document.getElementById("surface_lookup");
-      if (!unitSelect) return;
-      unitSelect.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        unitSelect.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Surface lookup error:", error);
+  ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "All_Surface" })
+  .then(function (response) {
+    const unitSelect = document.getElementById("surface_lookup");
+    if (!unitSelect) return;
+    unitSelect.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      unitSelect.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Surface lookup error:", error); });
 }
 
 /* ================= TREATMENT LOOKUP ================= */
 function loadTreatmentLookup() {
-  ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
-    report_name: "Treatment",
-  })
-    .then(function (response) {
-      const select = document.getElementById("treatment_lookup");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Treatment lookup error:", error);
+  ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Treatment" })
+  .then(function (response) {
+    const select = document.getElementById("treatment_lookup");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Treatment lookup error:", error); });
 }
 
 /* ================= SHAPE LOOKUP ================= */
 function loadShapeLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Shape" })
-    .then(function (response) {
-      const select = document.getElementById("shape_lookup");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Shape lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("shape_lookup");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Shape lookup error:", error); });
 }
 
 /* ================= DIA SHAPE LOOKUP ================= */
 function loaddiaShapeLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Shape" })
-    .then(function (response) {
-      const select = document.getElementById("dia_shape");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Dia Shape lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("dia_shape");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Dia Shape lookup error:", error); });
 }
 
 /* ================= DIAMOND COLOR LOOKUP ================= */
 function loadDiaColorLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Color" })
-    .then(function (response) {
-      const select = document.getElementById("dia_color");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Colour lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("dia_color");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Colour lookup error:", error); });
 }
 
 /* ================= DIAMOND CLARITY LOOKUP ================= */
 function loadDiaClarityLookup() {
-  ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
-    report_name: "Clarity",
-  })
-    .then(function (response) {
-      const select = document.getElementById("dia_clarity");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Clarity lookup error:", error);
+  ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Clarity" })
+  .then(function (response) {
+    const select = document.getElementById("dia_clarity");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Clarity lookup error:", error); });
 }
 
 /* ================= DIAMOND CUT LOOKUP ================= */
 function loadDiaCutLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Cut" })
-    .then(function (response) {
-      const select = document.getElementById("dia_cut");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Cut lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("dia_cut");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Cut lookup error:", error); });
 }
 
 /* ================= DIAMOND POLISH LOOKUP ================= */
 function loadDiaPolishLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Polish" })
-    .then(function (response) {
-      const select = document.getElementById("dia_polish");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Polish lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("dia_polish");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Polish lookup error:", error); });
 }
 
 /* ================= DIAMOND SYMMETRY LOOKUP ================= */
 function loadDiaSymmetryLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Polish" })
-    .then(function (response) {
-      const select = document.getElementById("dia_symmetry");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Symmetry lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("dia_symmetry");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Symmetry lookup error:", error); });
 }
 
 /* ================= DIAMOND CULET LOOKUP ================= */
 function loadDiaCuletLookup() {
   ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Cutlet" })
-    .then(function (response) {
-      const select = document.getElementById("dia_culet");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Culet lookup error:", error);
+  .then(function (response) {
+    const select = document.getElementById("dia_culet");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Culet lookup error:", error); });
 }
 
 /* ================= DIAMOND FLUORESCENCE LOOKUP ================= */
 function loadDiaFluorescenceLookup() {
-  ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
-    report_name: "Fluroscence",
-  })
-    .then(function (response) {
-      const select = document.getElementById("dia_fluorescence");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Fluorescence lookup error:", error);
+  ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Fluroscence" })
+  .then(function (response) {
+    const select = document.getElementById("dia_fluorescence");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Fluorescence lookup error:", error); });
 }
 
 /* ================= DIAMOND FLUORESCENCE COLOR LOOKUP ================= */
 function loadDiaFluorescenceColorLookup() {
-  ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
-    report_name: "Fluroscence_color",
-  })
-    .then(function (response) {
-      const select = document.getElementById("dia_colour_fluorescence");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Description1;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Fluorescence color lookup error:", error);
+  ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "Fluroscence_color" })
+  .then(function (response) {
+    const select = document.getElementById("dia_colour_fluorescence");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Description1;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Fluorescence color lookup error:", error); });
 }
 
 /* ================= SPECIES LOOKUP ================= */
 function loadSpeciesLookup() {
-  ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
-    report_name: "All_Stone_Species",
-  })
-    .then(function (response) {
-      const select = document.getElementById("species_lookup");
-      if (!select) return;
-      select.innerHTML = `<option value="">None</option>`;
-      if (!response.data || response.data.length === 0) return;
-      response.data.forEach(function (record) {
-        speciesMap[record.ID] = record;
-        const option = document.createElement("option");
-        option.value = record.ID;
-        option.text = record.Species;
-        select.appendChild(option);
-      });
-    })
-    .catch(function (error) {
-      console.error("Species lookup error:", error);
+  ZOHO.CREATOR.DATA.getRecords({ app_name: "feiny-app", report_name: "All_Stone_Species" })
+  .then(function (response) {
+    const select = document.getElementById("species_lookup");
+    if (!select) return;
+    select.innerHTML = `<option value="">None</option>`;
+    if (!response.data || response.data.length === 0) return;
+    response.data.forEach(function (record) {
+      speciesMap[record.ID] = record;
+      const option = document.createElement("option");
+      option.value = record.ID;
+      option.text  = record.Species;
+      select.appendChild(option);
     });
+  })
+  .catch(function (error) { console.error("Species lookup error:", error); });
 }
 
 /* ================= RAPPORT PRICE ================= */
 function initRapportPriceTriggers() {
-  ["dia_shape", "dia_color", "dia_clarity", "dia_weight"].forEach(
-    function (id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener("change", fetchRapportPrice);
-        el.addEventListener("input", fetchRapportPrice);
-      }
-    },
-  );
+  ["dia_shape", "dia_color", "dia_clarity", "dia_weight"].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("change", fetchRapportPrice);
+      el.addEventListener("input",  fetchRapportPrice);
+    }
+  });
 }
 
 function fetchRapportPrice() {
-  const shapeEl = document.getElementById("dia_shape");
-  const colorEl = document.getElementById("dia_color");
+  const shapeEl   = document.getElementById("dia_shape");
+  const colorEl   = document.getElementById("dia_color");
   const clarityEl = document.getElementById("dia_clarity");
-  const weightEl = document.getElementById("dia_weight");
+  const weightEl  = document.getElementById("dia_weight");
 
-  const shape = shapeEl?.selectedOptions[0]?.text?.trim();
-  const color = colorEl?.selectedOptions[0]?.text?.trim();
+  const shape   = shapeEl?.selectedOptions[0]?.text?.trim();
+  const color   = colorEl?.selectedOptions[0]?.text?.trim();
   const clarity = clarityEl?.selectedOptions[0]?.text?.trim();
-  const weight = parseFloat(weightEl?.value);
+  const weight  = parseFloat(weightEl?.value);
 
-  if (
-    !shape ||
-    shape === "None" ||
-    shape === "Select" ||
-    !color ||
-    color === "None" ||
-    color === "Select" ||
-    !clarity ||
-    clarity === "None" ||
-    clarity === "Select" ||
-    isNaN(weight) ||
-    weight <= 0
-  ) {
+  if (!shape || shape === "None" || shape === "Select" ||
+      !color || color === "None" || color === "Select" ||
+      !clarity || clarity === "None" || clarity === "Select" ||
+      isNaN(weight) || weight <= 0) {
     document.getElementById("rapport_price").value = "";
     return;
   }
@@ -1133,25 +827,22 @@ function fetchRapportPrice() {
     app_name: "feiny-app",
     report_name: "All_Rapaport_Masters",
     criteria: criteria,
-    max_records: 200,
+    max_records: 200
   })
-    .then(function (response) {
-      if (response.data && response.data.length > 0) {
-        const sorted = response.data.sort(function (a, b) {
-          return (
-            parseFloat(a.Weight_high_size1) - parseFloat(b.Weight_high_size1)
-          );
-        });
-        document.getElementById("rapport_price").value =
-          sorted[0].Rapaport_Price || "";
-      } else {
-        document.getElementById("rapport_price").value = "";
-      }
-    })
-    .catch(function (error) {
-      console.error("Rapaport price error:", error);
+  .then(function (response) {
+    if (response.data && response.data.length > 0) {
+      const sorted = response.data.sort(function (a, b) {
+        return parseFloat(a.Weight_high_size1) - parseFloat(b.Weight_high_size1);
+      });
+      document.getElementById("rapport_price").value = sorted[0].Rapaport_Price || "";
+    } else {
       document.getElementById("rapport_price").value = "";
-    });
+    }
+  })
+  .catch(function (error) {
+    console.error("Rapaport price error:", error);
+    document.getElementById("rapport_price").value = "";
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1159,47 +850,40 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ================= SPECIES CHANGE → HTS / CODE ================= */
-document
-  .getElementById("species_lookup")
-  .addEventListener("change", function () {
-    const recordId = this.value;
-    if (!recordId) {
-      document.getElementById("hts_field").value = "";
-      document.getElementById("code_field").value = "";
-      return;
-    }
-    ZOHO.CREATOR.DATA.getRecordById({
-      app_name: "feiny-app",
-      report_name: "All_Stone_Species",
-      id: recordId,
-    })
-      .then(function (response) {
-        if (response.code !== 3000 || !response.data) return;
-        document.getElementById("hts_field").value = response.data.HTS || "";
-        document.getElementById("code_field").value =
-          response.data.Default_Treatment_Code || "";
-      })
-      .catch(function (error) {
-        console.error("Species record error:", error);
-      });
-  });
+document.getElementById("species_lookup").addEventListener("change", function () {
+  const recordId = this.value;
+  if (!recordId) {
+    document.getElementById("hts_field").value  = "";
+    document.getElementById("code_field").value = "";
+    return;
+  }
+  ZOHO.CREATOR.DATA.getRecordById({
+    app_name: "feiny-app",
+    report_name: "All_Stone_Species",
+    id: recordId
+  })
+  .then(function (response) {
+    if (response.code !== 3000 || !response.data) return;
+    document.getElementById("hts_field").value  = response.data.HTS                    || "";
+    document.getElementById("code_field").value = response.data.Default_Treatment_Code || "";
+  })
+  .catch(function (error) { console.error("Species record error:", error); });
+});
+
 
 /* ================= SAVE → ZOHO CREATOR ================= */
 function saveRecord() {
   const itemType = document.getElementById("itemType").value;
-  const In_SKU = document.getElementById("In_SKU").value;
+  const In_SKU   = document.getElementById("In_SKU").value;
 
   if (!itemType || !In_SKU) {
     alert("Please select Item Type and enter SKU");
     return;
   }
 
-  const saveBtn = document.getElementById("addRecord");
+  const saveBtn      = document.getElementById("addRecord");
   const originalText = saveBtn ? saveBtn.textContent : "Save";
-  if (saveBtn) {
-    saveBtn.textContent = "Saving...";
-    saveBtn.disabled = true;
-  }
+  if (saveBtn) { saveBtn.textContent = "Saving..."; saveBtn.disabled = true; }
 
   function getNumber(id) {
     let val = document.getElementById(id)?.value;
@@ -1214,68 +898,63 @@ function saveRecord() {
     form_name: "Lot_Master",
     payload: {
       data: {
-        Select: itemType,
-        In_SKU: In_SKU,
-        Stock_On_Hand: getNumber("Stock_On_Hand"),
-        Status: document.getElementById("Status")?.value || "",
-        Treatment: document.getElementById("treatment_lookup")?.value || "",
-        Species: document.getElementById("species_lookup")?.value || "",
-        Surface: document.getElementById("surface_lookup")?.value || "",
-        Shape: document.getElementById("shape_lookup")?.value || "",
-        Origin: document.getElementById("origin_country")?.value || "",
-        Country_of_Cut: document.getElementById("country_cut")?.value || "",
-        HTS: document.getElementById("hts_field")?.value || "",
-        Code: document.getElementById("code_field")?.value || "",
-        Rapport_Price: getNumber("Rapport_Price"),
-        Rough_Lot: document.getElementById("rough_lot")?.value || "",
-        Name1: document.getElementById("cs_short_description")?.value || "",
-        Long_Description:
-          document.getElementById("cs_long_description")?.value || "",
-        length_field: getNumber("min_length"),
-        Width: getNumber("min_width"),
-        Height: getNumber("min_height"),
-        Length_field1: getNumber("max_length"),
-        Width1: getNumber("max_width"),
-        Height1: getNumber("max_height"),
-        weight: getNumber("weight"),
-        AGL: document.getElementById("cert_agl")?.checked || false,
-        GIA: document.getElementById("cert_gia")?.checked || false,
-        Gub: document.getElementById("cert_gubelin")?.checked || false,
-        SSEF: document.getElementById("cert_ssef")?.checked || false,
-        Other: document.getElementById("cert_other")?.checked || false,
-        Description2:
-          document.getElementById("certificate_details")?.value || "",
-        Price4: getNumber("Price4"),
-        Minimum_Price: getNumber("MinimumPrice"),
-        Unit: document.getElementById("unit_lookup")?.value || "",
-        Partnership_Details: getPartnerRowsData(),
-        Shape3: document.getElementById("dia_shape")?.value || "",
-        Color: document.getElementById("dia_color")?.value || "",
-        Clarity: document.getElementById("dia_clarity")?.value || "",
-        Cut: document.getElementById("dia_cut")?.value || "",
-        Polish: document.getElementById("dia_polish")?.value || "",
-        Culet: document.getElementById("dia_culet")?.value || "",
-        Symmetry: document.getElementById("dia_symmetry")?.value || "",
-        Fluorescence1: document.getElementById("dia_fluorescence")?.value || "",
-        Fluorescence_Color:
-          document.getElementById("dia_colour_fluorescence")?.value || "",
-        Lab: document.getElementById("dia_lab")?.value || "",
-        Length_mm: getNumber("dia_length"),
-        Width_mm: getNumber("dia_width"),
-        Depth1: getNumber("dia_depth"),
-        Table: getNumber("dia_table"),
-        Depth2: getNumber("dia_depth_percent"),
-        Weight_Ct: getNumber("dia_weight"),
-        Price_Per_carat: getNumber("price_per_carat"),
-        Total_Price: getNumber("total_price"),
-        Rapport_Price1: getNumber("rapport_price"),
-        Quantity: getNumber("quantity"),
-        Short_Description1:
-          document.getElementById("diashort_description")?.value || "",
-        Long_Description2:
-          document.getElementById("dialong_description")?.value || "",
-      },
-    },
+        "Select":  itemType,
+        "In_SKU":  In_SKU,
+        "Stock_On_Hand": getNumber("Stock_On_Hand"),
+        "Status":  document.getElementById("Status")?.value || "",
+        "Treatment": document.getElementById("treatment_lookup")?.value || "",
+        "Species":   document.getElementById("species_lookup")?.value   || "",
+        "Surface":   document.getElementById("surface_lookup")?.value   || "",
+        "Shape":     document.getElementById("shape_lookup")?.value     || "",
+        "Origin":         document.getElementById("origin_country")?.value || "",
+        "Country_of_Cut": document.getElementById("country_cut")?.value    || "",
+        "HTS":  document.getElementById("hts_field")?.value  || "",
+        "Code": document.getElementById("code_field")?.value || "",
+        "Rapport_Price": getNumber("Rapport_Price"),
+        "Rough_Lot":     document.getElementById("rough_lot")?.value            || "",
+        "Name1":         document.getElementById("cs_short_description")?.value || "",
+        "Long_Description": document.getElementById("cs_long_description")?.value || "",
+        "length_field": getNumber("min_length"),
+        "Width":        getNumber("min_width"),
+        "Height":       getNumber("min_height"),
+        "Length_field1": getNumber("max_length"),
+        "Width1":        getNumber("max_width"),
+        "Height1":       getNumber("max_height"),
+        "weight":        getNumber("weight"),
+        "AGL":  document.getElementById("cert_agl")?.checked     || false,
+        "GIA":  document.getElementById("cert_gia")?.checked     || false,
+        "Gub":  document.getElementById("cert_gubelin")?.checked || false,
+        "SSEF": document.getElementById("cert_ssef")?.checked    || false,
+        "Other": document.getElementById("cert_other")?.checked  || false,
+        "Description2": document.getElementById("certificate_details")?.value || "",
+        "Price4":        getNumber("Price4"),
+        "Minimum_Price": getNumber("MinimumPrice"),
+        "Unit": document.getElementById("unit_lookup")?.value || "",
+        "Partnership_Details": getPartnerRowsData(),
+        "Shape3":             document.getElementById("dia_shape")?.value               || "",
+        "Color":              document.getElementById("dia_color")?.value               || "",
+        "Clarity":            document.getElementById("dia_clarity")?.value             || "",
+        "Cut":                document.getElementById("dia_cut")?.value                 || "",
+        "Polish":             document.getElementById("dia_polish")?.value              || "",
+        "Culet":              document.getElementById("dia_culet")?.value               || "",
+        "Symmetry":           document.getElementById("dia_symmetry")?.value            || "",
+        "Fluorescence1":      document.getElementById("dia_fluorescence")?.value        || "",
+        "Fluorescence_Color": document.getElementById("dia_colour_fluorescence")?.value || "",
+        "Lab":                document.getElementById("dia_lab")?.value                 || "",
+        "Length_mm":  getNumber("dia_length"),
+        "Width_mm":   getNumber("dia_width"),
+        "Depth1":     getNumber("dia_depth"),
+        "Table":      getNumber("dia_table"),
+        "Depth2":     getNumber("dia_depth_percent"),
+        "Weight_Ct":  getNumber("dia_weight"),
+        "Price_Per_carat": getNumber("price_per_carat"),
+        "Total_Price":     getNumber("total_price"),
+        "Rapport_Price1":  getNumber("rapport_price"),
+        "Quantity":        getNumber("quantity"),
+        "Short_Description1": document.getElementById("diashort_description")?.value || "",
+        "Long_Description2":  document.getElementById("dialong_description")?.value  || ""
+      }
+    }
   };
 
   console.log("Saving config:", config);
@@ -1286,217 +965,134 @@ function saveRecord() {
       let recordId = null;
 
       if (response.code === 3000 || response.code === "3000") {
-        if (
-          response.data &&
-          Array.isArray(response.data) &&
-          response.data.length > 0
-        )
-          recordId = response.data[0].ID;
-        else if (response.data && response.data.ID) recordId = response.data.ID;
-        else if (response.details && response.details.id)
-          recordId = response.details.id;
-        else if (response.id) recordId = response.id;
+        if      (response.data && Array.isArray(response.data) && response.data.length > 0) recordId = response.data[0].ID;
+        else if (response.data && response.data.ID)   recordId = response.data.ID;
+        else if (response.details && response.details.id) recordId = response.details.id;
+        else if (response.id)                         recordId = response.id;
 
-        if (!recordId)
-          throw new Error(
-            "Record created but ID not found: " + JSON.stringify(response),
-          );
+        if (!recordId) throw new Error("Record created but ID not found: " + JSON.stringify(response));
 
         let uploadPromises = [];
         const certPromises = createCertificateRecords(In_SKU);
-        if (certPromises && certPromises.length > 0)
-          uploadPromises = uploadPromises.concat(certPromises);
-        if (recordId && diaImageFile)
-          uploadPromises.push(uploadDiaImage(recordId, diaImageFile));
-        if (recordId && stoneImageFile)
-          uploadPromises.push(uploadStoneImage(recordId, stoneImageFile));
+        if (certPromises && certPromises.length > 0) uploadPromises = uploadPromises.concat(certPromises);
+        if (recordId && diaImageFile)   uploadPromises.push(uploadDiaImage(recordId, diaImageFile));
+        if (recordId && stoneImageFile) uploadPromises.push(uploadStoneImage(recordId, stoneImageFile));
 
         return Promise.all(uploadPromises);
       } else {
-        throw new Error(
-          "Failed to create record: " +
-            (response.message || JSON.stringify(response)),
-        );
+        throw new Error("Failed to create record: " + (response.message || JSON.stringify(response)));
       }
     })
     .then(function (uploadResults) {
       // console.log("Upload results:", uploadResults);
-      const successCount =
-        uploadResults?.filter((u) => u.type === "certificate" && u.success)
-          .length || 0;
+      const successCount = uploadResults?.filter(u => u.type === "certificate" && u.success).length || 0;
       let message = "Record created successfully!";
-      if (successCount > 0)
-        message += ` ${successCount} certificate(s) created.`;
+      if (successCount > 0) message += ` ${successCount} certificate(s) created.`;
       alert(message);
       certificateFiles.clear();
       certificateFilesToUpload = [];
-      ZOHO.CREATOR.UTIL.navigateTo({
-        url: "#Report:All_Color_Stone",
-        target: "same",
-      });
+      ZOHO.CREATOR.UTIL.navigateTo({ url: "#Report:All_Color_Stone", target: "same" });
     })
     .catch(function (error) {
       console.error("Save error:", error);
       alert("Error: " + error.message);
     })
     .finally(function () {
-      if (saveBtn) {
-        saveBtn.textContent = originalText;
-        saveBtn.disabled = false;
-      }
+      if (saveBtn) { saveBtn.textContent = originalText; saveBtn.disabled = false; }
     });
 }
 
 /* ================= GET PARTNERSHIP SUBFORM DATA ================= */
 function getPartnerRowsData() {
   const partnerRows = [];
-  document
-    .querySelectorAll("#partnerBody .partner-row")
-    .forEach(function (row) {
-      partnerRows.push({
-        Partnership_shares: row.querySelector(".partner-share")?.value || "",
-        Partnership: row.querySelector(".partner-percent")?.value || "",
-        Commission: row.querySelector(".commission-percent")?.value || "",
-        Commission_Itemized_on_Invoice:
-          row.querySelector(".commission-itemized")?.checked || false,
-      });
+  document.querySelectorAll("#partnerBody .partner-row").forEach(function (row) {
+    partnerRows.push({
+      "Partnership_shares": row.querySelector(".partner-share")?.value      || "",
+      "Partnership":        row.querySelector(".partner-percent")?.value    || "",
+      "Commission":         row.querySelector(".commission-percent")?.value || "",
+      "Commission_Itemized_on_Invoice": row.querySelector(".commission-itemized")?.checked || false
     });
+  });
   return partnerRows;
 }
 
 /* ================= CREATE CERTIFICATE RECORDS ================= */
 function createCertificateRecords(skuValue) {
-  const promises = [];
-  const rows = document.querySelectorAll("#certificateBody tr");
+  const promises     = [];
+  const rows         = document.querySelectorAll("#certificateBody tr");
   const categoryValue = document.getElementById("itemType")?.value || "";
-  const speciesId = document.getElementById("species_lookup")?.value || "";
-  const speciesValue = speciesMap[speciesId]?.Species || "";
+  const speciesId     = document.getElementById("species_lookup")?.value || "";
+  const speciesValue  = speciesMap[speciesId]?.Species || "";
 
   if (rows.length === 0) return promises;
 
   rows.forEach(function (row, index) {
-    const idInput = row.querySelector(".cert-id");
-    const fileInput = row.querySelector(".cert-file");
-    const dateInput = row.querySelector(".cert-date");
-    const notesInput = row.querySelector(".cert-notes");
-    const labSelect = row.querySelector(".cert-lab");
+    const idInput      = row.querySelector(".cert-id");
+    const fileInput    = row.querySelector(".cert-file");
+    const dateInput    = row.querySelector(".cert-date");
+    const notesInput   = row.querySelector(".cert-notes");
+    const labSelect    = row.querySelector(".cert-lab");
     const labDescSelect = row.querySelector(".cert-lab-desc");
-    const labSupSelect = row.querySelector(".cert-lab-sup");
+    const labSupSelect  = row.querySelector(".cert-lab-sup");
 
-    const idValue = idInput?.value || "";
+    const idValue    = idInput?.value || "";
     const fileExists = fileInput?.files && fileInput.files.length > 0;
 
     let dateValue = "";
     if (dateInput && dateInput.value) {
-      const dateObj = new Date(dateInput.value);
-      const day = String(dateObj.getDate()).padStart(2, "0");
-      const monthNames = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      const month = monthNames[dateObj.getMonth()];
-      const year = dateObj.getFullYear();
-      dateValue = `${day}-${month}-${year}`;
+      const dateObj    = new Date(dateInput.value);
+      const day        = String(dateObj.getDate()).padStart(2, "0");
+      const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const month      = monthNames[dateObj.getMonth()];
+      const year       = dateObj.getFullYear();
+      dateValue        = `${day}-${month}-${year}`;
     }
 
-    const notesValue = notesInput?.value || "";
-    const labValue = labSelect?.value || "";
+    const notesValue   = notesInput?.value    || "";
+    const labValue     = labSelect?.value     || "";
     const labDescValue = labDescSelect?.value || "";
-    const labSupValue = labSupSelect?.value || "";
+    const labSupValue  = labSupSelect?.value  || "";
 
-    const hasData =
-      idValue ||
-      fileExists ||
-      dateValue ||
-      notesValue ||
-      labValue ||
-      labDescValue ||
-      labSupValue;
+    const hasData = idValue || fileExists || dateValue || notesValue || labValue || labDescValue || labSupValue;
     if (!hasData) return;
 
     const certData = {
-      ID1: idValue,
-      Date_field: dateValue,
-      Notes: notesValue,
-      Lab: labValue,
-      Lab_Descriptor: labDescValue,
-      Laboratory_Supplement: labSupValue,
-      SKU: skuValue,
-      Categories: categoryValue,
-      Species: speciesValue,
+      "ID1":                   idValue,
+      "Date_field":            dateValue,
+      "Notes":                 notesValue,
+      "Lab":                   labValue,
+      "Lab_Descriptor":        labDescValue,
+      "Laboratory_Supplement": labSupValue,
+      "SKU":                   skuValue,
+      "Categories":            categoryValue,
+      "Species":               speciesValue
     };
 
     const promise = new Promise((resolve) => {
       ZOHO.CREATOR.DATA.addRecords({
-        app_name: "feiny-app",
+        app_name:  "feiny-app",
         form_name: "Certificate_Uploads",
-        payload: { data: certData },
+        payload:   { data: certData }
       })
-        .then(function (response) {
-          let certRecordId = null;
-          if (response.code === 3000 || response.code === "3000") {
-            if (
-              response.data &&
-              Array.isArray(response.data) &&
-              response.data.length > 0
-            )
-              certRecordId = response.data[0].ID;
-            else if (response.data && response.data.ID)
-              certRecordId = response.data.ID;
-            else if (response.details && response.details.id)
-              certRecordId = response.details.id;
-            else if (response.id) certRecordId = response.id;
-          }
-          if (certRecordId && fileExists) {
-            return uploadCertificateFile(certRecordId, fileInput.files[0])
-              .then(() =>
-                resolve({
-                  type: "certificate",
-                  success: true,
-                  index,
-                  sku: skuValue,
-                  recordId: certRecordId,
-                }),
-              )
-              .catch((err) =>
-                resolve({
-                  type: "certificate",
-                  success: true,
-                  fileUploadFailed: true,
-                  index,
-                  error: err.message,
-                }),
-              );
-          } else {
-            resolve({
-              type: "certificate",
-              success: true,
-              index,
-              sku: skuValue,
-              recordId: certRecordId,
-              noFile: true,
-            });
-          }
-        })
-        .catch(function (error) {
-          resolve({
-            type: "certificate",
-            success: false,
-            error: error.message,
-            index,
-            sku: skuValue,
-          });
-        });
+      .then(function (response) {
+        let certRecordId = null;
+        if (response.code === 3000 || response.code === "3000") {
+          if      (response.data && Array.isArray(response.data) && response.data.length > 0) certRecordId = response.data[0].ID;
+          else if (response.data && response.data.ID)   certRecordId = response.data.ID;
+          else if (response.details && response.details.id) certRecordId = response.details.id;
+          else if (response.id)                         certRecordId = response.id;
+        }
+        if (certRecordId && fileExists) {
+          return uploadCertificateFile(certRecordId, fileInput.files[0])
+            .then(() => resolve({ type: "certificate", success: true,  index, sku: skuValue, recordId: certRecordId }))
+            .catch(err => resolve({ type: "certificate", success: true, fileUploadFailed: true, index, error: err.message }));
+        } else {
+          resolve({ type: "certificate", success: true, index, sku: skuValue, recordId: certRecordId, noFile: true });
+        }
+      })
+      .catch(function (error) {
+        resolve({ type: "certificate", success: false, error: error.message, index, sku: skuValue });
+      });
     });
 
     promises.push(promise);
@@ -1509,31 +1105,29 @@ function createCertificateRecords(skuValue) {
 function uploadDiaImage(recordId, file) {
   return new Promise(function (resolve, reject) {
     ZOHO.CREATOR.FILE.uploadFile({
-      app_name: "feiny-app",
+      app_name:    "feiny-app",
       report_name: "All_Lot_Master",
-      id: recordId,
-      field_name: "item_Image",
-      file: file,
+      id:          recordId,
+      field_name:  "item_Image",
+      file:        file
     })
-      .then(function (response) {
-        if (response.code === 3000 || response.code === "3000") {
-          setImagePreview(file);
-          ZOHO.CREATOR.DATA.invokeCustomApi({
-            api_name: "imageupload",
-            workspace_name: "ankit_feiny",
-            http_method: "POST",
-            content_type: "application/json",
-            payload: { IDd: recordId, fileFormat: file.name },
-            public_key: "2hXJDxEmMyekhJ7yFtrJV5n14",
-          })
-            .then((r) => console.log("Custom API SUCCESS:", r))
-            .catch((e) => console.error("Custom API ERROR:", e));
-          resolve({ type: "image", success: true });
-        } else {
-          reject(new Error(response.message || "Upload failed"));
-        }
-      })
-      .catch(reject);
+    .then(function (response) {
+      if (response.code === 3000 || response.code === "3000") {
+        setImagePreview(file);
+        ZOHO.CREATOR.DATA.invokeCustomApi({
+          api_name: "imageupload", workspace_name: "ankit_feiny",
+          http_method: "POST", content_type: "application/json",
+          payload: { IDd: recordId, fileFormat: file.name },
+          public_key: "2hXJDxEmMyekhJ7yFtrJV5n14"
+        })
+        .then(r  => console.log("Custom API SUCCESS:", r))
+        .catch(e => console.error("Custom API ERROR:", e));
+        resolve({ type: "image", success: true });
+      } else {
+        reject(new Error(response.message || "Upload failed"));
+      }
+    })
+    .catch(reject);
   });
 }
 
@@ -1549,40 +1143,33 @@ function setImagePreview(file) {
 const preview = document.getElementById("imagePreview");
 if (preview) {
   preview.style.cursor = "pointer";
-  preview.onclick = function () {
-    if (preview.src) window.open(preview.src, "_blank");
-  };
+  preview.onclick = function () { if (preview.src) window.open(preview.src, "_blank"); };
 }
 
 /* ================= STONE IMAGE UPLOAD ================= */
 function uploadStoneImage(recordId, file) {
   return new Promise(function (resolve, reject) {
     ZOHO.CREATOR.FILE.uploadFile({
-      app_name: "feiny-app",
+      app_name:    "feiny-app",
       report_name: "All_Lot_Master",
-      id: recordId,
-      field_name: "item_Image",
-      file: file,
+      id:          recordId,
+      field_name:  "item_Image",
+      file:        file
     })
-      .then(function (response) {
-        if (response.code === 3000 || response.code === "3000") {
-          return ZOHO.CREATOR.DATA.invokeCustomApi({
-            api_name: "imageupload",
-            workspace_name: "ankit_feiny",
-            http_method: "POST",
-            content_type: "application/json",
-            payload: { IDd: recordId, fileFormat: file.name },
-            public_key: "2hXJDxEmMyekhJ7yFtrJV5n14",
-          });
-        } else {
-          throw new Error(response.message || "Stone image upload failed");
-        }
-      })
-      .then((r) => {
-        console.log("Stone custom API SUCCESS:", r);
-        resolve({ type: "stoneImage", success: true });
-      })
-      .catch(reject);
+    .then(function (response) {
+      if (response.code === 3000 || response.code === "3000") {
+        return ZOHO.CREATOR.DATA.invokeCustomApi({
+          api_name: "imageupload", workspace_name: "ankit_feiny",
+          http_method: "POST", content_type: "application/json",
+          payload: { IDd: recordId, fileFormat: file.name },
+          public_key: "2hXJDxEmMyekhJ7yFtrJV5n14"
+        });
+      } else {
+        throw new Error(response.message || "Stone image upload failed");
+      }
+    })
+    .then(r  => { console.log("Stone custom API SUCCESS:", r); resolve({ type: "stoneImage", success: true }); })
+    .catch(reject);
   });
 }
 
@@ -1590,34 +1177,31 @@ function uploadStoneImage(recordId, file) {
 function uploadCertificateFile(recordId, file) {
   return new Promise(function (resolve, reject) {
     ZOHO.CREATOR.FILE.uploadFile({
-      app_name: "feiny-app",
+      app_name:    "feiny-app",
       report_name: "All_Certificate_Details",
-      id: recordId,
-      field_name: "Certificate_Single",
-      file: file,
+      id:          recordId,
+      field_name:  "Certificate_Single",
+      file:        file
     })
-      .then(function (response) {
-        if (response.code === 3000 || response.code === "3000") {
-          resolve(response);
-          ZOHO.CREATOR.DATA.invokeCustomApi({
-            api_name: "asfd",
-            workspace_name: "ankit_feiny",
-            http_method: "POST",
-            content_type: "application/json",
-            payload: { IDd: recordId, fileFormat: response.data.filename },
-            public_key: "yUeF2jG7QJWCHXUaEuCQ91XvA",
-          })
-            .then((r) => console.log("Cert custom API SUCCESS:", r))
-            .catch((e) => console.error("Cert custom API ERROR:", e));
-        } else {
-          reject(
-            new Error(response.message || "Certificate file upload failed"),
-          );
-        }
-      })
-      .catch(reject);
+    .then(function (response) {
+      if (response.code === 3000 || response.code === "3000") {
+        resolve(response);
+        ZOHO.CREATOR.DATA.invokeCustomApi({
+          api_name: "asfd", workspace_name: "ankit_feiny",
+          http_method: "POST", content_type: "application/json",
+          payload: { IDd: recordId, fileFormat: response.data.filename },
+          public_key: "yUeF2jG7QJWCHXUaEuCQ91XvA"
+        })
+        .then(r  => console.log("Cert custom API SUCCESS:", r))
+        .catch(e => console.error("Cert custom API ERROR:", e));
+      } else {
+        reject(new Error(response.message || "Certificate file upload failed"));
+      }
+    })
+    .catch(reject);
   });
 }
+
 
 /* =================================================================================
    LOAD EXISTING RECORD (EDIT MODE)
@@ -1640,96 +1224,101 @@ ZOHO.CREATOR.UTIL.getQueryParams().then(function (params) {
 function loadExistingRecord(recordID) {
   ZOHO.CREATOR.DATA.getRecordById({
     report_name: "All_Lot_Master",
-    id: recordID,
+    id: recordID
   })
-    .then(function (res) {
-      const data = res.data;
-      // console.log("Existing record data:", data);
+  .then(function (res) {
+    const data = res.data;
+    // console.log("Existing record data:", data);
 
-      document.getElementById("In_SKU").value = data.In_SKU || "";
-      document.getElementById("itemType").value = data.Select || "";
-      document.getElementById("surface_lookup").value = data.Surface?.ID || "";
-      document.getElementById("species_lookup").value = data.Species?.ID || "";
-      document.getElementById("treatment_lookup").value =
-        data.Treatment?.ID || "";
-      document.getElementById("shape_lookup").value = data.Shape?.ID || "";
-      document.getElementById("origin_country").value = data.Origin || "";
-      document.getElementById("country_cut").value = data.Country_of_Cut || "";
-      document.getElementById("hts_field").value = data.HTS || "";
-      document.getElementById("code_field").value = data.Code || "";
-      document.getElementById("cs_short_description").value = data.Name1 || "";
-      document.getElementById("cs_long_description").value =
-        data.Long_Description || "";
-      document.getElementById("min_length").value = data.length_field || "";
-      document.getElementById("min_width").value = data.Width || "";
-      document.getElementById("min_height").value = data.Height || "";
-      document.getElementById("max_length").value = data.Length_field1 || "";
-      document.getElementById("max_width").value = data.Width1 || "";
-      document.getElementById("max_height").value = data.Height1 || "";
-      document.getElementById("weight").value = data.weight || "";
-      document.getElementById("cert_other").checked = data.Other || false;
-      document.getElementById("cert_gubelin").checked = data.Gub || false;
-      document.getElementById("cert_agl").checked = data.AGL || false;
-      document.getElementById("cert_gia").checked = data.GIA || false;
-      document.getElementById("cert_ssef").checked = data.SSEF || false;
-      document.getElementById("certificate_details").value =
-        data.Description2 || "";
-      document.getElementById("Price4").value = data.Price4 || "";
-      document.getElementById("MinimumPrice").value = data.Minimum_Price || "";
-      document.getElementById("unit_lookup").value = data.Unit?.ID || "";
+    document.getElementById("In_SKU").value               = data.In_SKU           || "";
+    document.getElementById("itemType").value             = data.Select            || "";
+    document.getElementById("surface_lookup").value       = data.Surface?.ID       || "";
+    document.getElementById("species_lookup").value       = data.Species?.ID       || "";
+    document.getElementById("treatment_lookup").value     = data.Treatment?.ID     || "";
+    document.getElementById("shape_lookup").value         = data.Shape?.ID         || "";
+    document.getElementById("origin_country").value       = data.Origin            || "";
+    document.getElementById("country_cut").value          = data.Country_of_Cut    || "";
+    document.getElementById("hts_field").value            = data.HTS               || "";
+    document.getElementById("code_field").value           = data.Code              || "";
+    document.getElementById("cs_short_description").value = data.Name1             || "";
+    document.getElementById("cs_long_description").value  = data.Long_Description  || "";
+    document.getElementById("min_length").value           = data.length_field      || "";
+    document.getElementById("min_width").value            = data.Width             || "";
+    document.getElementById("min_height").value           = data.Height            || "";
+    document.getElementById("max_length").value           = data.Length_field1     || "";
+    document.getElementById("max_width").value            = data.Width1            || "";
+    document.getElementById("max_height").value           = data.Height1           || "";
+    document.getElementById("weight").value               = data.weight            || "";
+    document.getElementById("cert_other").checked         = data.Other             || false;
+    document.getElementById("cert_gubelin").checked       = data.Gub               || false;
+    document.getElementById("cert_agl").checked           = data.AGL               || false;
+    document.getElementById("cert_gia").checked           = data.GIA               || false;
+    document.getElementById("cert_ssef").checked          = data.SSEF              || false;
+    document.getElementById("certificate_details").value  = data.Description2      || "";
+    document.getElementById("Price4").value               = data.Price4            || "";
+    document.getElementById("MinimumPrice").value         = data.Minimum_Price     || "";
+    document.getElementById("unit_lookup").value          = data.Unit?.ID          || "";
 
-      /* ─── CERTIFICATE UPLOADS SUBFORM ─── */
-      loadCertificateSubform(recordID);
+    /* ─── CERTIFICATE UPLOADS SUBFORM ─── */
+    loadCertificateSubform(recordID);
 
-      // ================= PARTNERSHIP DETAILS SUBFORM =================
-      var partnerData = data.Partnership_Details;
-      // console.log("PARTNER SUBFORM DATA:", partnerData);
-      // console.log("PARTNER SUBFORM DATA: " + JSON.stringify(partnerData));
+// ================= PARTNERSHIP DETAILS SUBFORM =================
+var partnerData = data.Partnership_Details;
+// console.log("PARTNER SUBFORM DATA:", partnerData);
+// console.log("PARTNER SUBFORM DATA: " + JSON.stringify(partnerData));
 
-      var partnerTbody = document.getElementById("partnerBody");
-      // document.getElementById("partnershipsec").style.display = "block";
-      // document.querySelectorAll(".partnerlookup, .partnerdatalookup, .partner_data_lookup")
-      partnerTbody.innerHTML = "";
+var partnerTbody = document.getElementById("partnerBody");
+// document.getElementById("partnershipsec").style.display = "block";
+// document.querySelectorAll(".partnerlookup, .partnerdatalookup, .partner_data_lookup")
+partnerTbody.innerHTML = "";
 
-      if (partnerData && partnerData.length > 0) {
-        partnerData.forEach(function (item) {
-          // console.log("Processing partner item:", item);
+if (partnerData && partnerData.length > 0) {
 
-          var tr = document.createElement("tr");
-          tr.classList.add("partner-row");
+partnerData.forEach(function (item) {
+  // console.log("Processing partner item:", item);
 
-          tr.innerHTML = `
+  var tr = document.createElement("tr");
+  tr.classList.add("partner-row");
+
+  tr.innerHTML = `
     <td>
       <select class="partnerdatalookup">
         <option value="">Select Partner</option>
       </select>
     </td>
-    <td><input type="text" class="partner-share" value="${item.Partnership_shares || ""}"></td>
-    <td><input type="text" class="partner-percent" value="${item.Partnership || ""}"></td>
-    <td><input type="text" class="commission-percent" value="${item.Commission || ""}"></td>
+    <td><input type="text" class="partner-share" value="${item.Partnership_shares || ''}"></td>
+    <td><input type="text" class="partner-percent" value="${item.Partnership || ''}"></td>
+    <td><input type="text" class="commission-percent" value="${item.Commission || ''}"></td>
     <td style="text-align:center">
       <input type="checkbox" class="commission-itemized" ${item.Commission_Itemized_on_Invoice === "true" ? "checked" : ""}>
     </td>
-    <td><textarea class="partner-desc">${item.Description || ""}</textarea></td>
+    <td><textarea class="partner-desc">${item.Description || ''}</textarea></td>
   `;
 
-          partnerTbody.appendChild(tr);
+  partnerTbody.appendChild(tr);
+  
+  populatePartnerDropdowns();
+  
+setTimeout(function () {
+  const selectEl = tr.querySelector('.partnerdatalookup');
+  selectEl.value = item.Partner_Name?.ID || "";
+}, 300);
 
-          populatePartnerDropdowns();
+  
+});
 
-          setTimeout(function () {
-            const selectEl = tr.querySelector(".partnerdatalookup");
-            selectEl.value = item.Partner_Name?.ID || "";
-          }, 300);
-        });
-      } else {
-        console.log("⚠️ No partnership data found");
-        addPartnerRow();
-      }
-    })
-    .catch(function (err) {
-      console.error("loadExistingRecord error:", err);
-    });
+
+} 
+else {
+  console.log("⚠️ No partnership data found");
+  addPartnerRow();
+}
+
+
+  })
+  .catch(function (err) {
+    console.error("loadExistingRecord error:", err);
+  });
 }
 /* ─── Date string from Zoho (dd-Mon-yyyy or ISO) → yyyy-mm-dd for <input type="date"> ─── */
 function formatToYYYYMMDD(dateStr) {
@@ -1744,21 +1333,11 @@ function formatToYYYYMMDD(dateStr) {
     if (parts.length === 3) {
       const [day, monthStr, year] = parts;
       const months = {
-        Jan: "01",
-        Feb: "02",
-        Mar: "03",
-        Apr: "04",
-        May: "05",
-        Jun: "06",
-        Jul: "07",
-        Aug: "08",
-        Sep: "09",
-        Oct: "10",
-        Nov: "11",
-        Dec: "12",
+        Jan:"01",Feb:"02",Mar:"03",Apr:"04",May:"05",Jun:"06",
+        Jul:"07",Aug:"08",Sep:"09",Oct:"10",Nov:"11",Dec:"12"
       };
       const month = months[monthStr];
-      if (month) return `${year}-${month}-${day.padStart(2, "0")}`;
+      if (month) return `${year}-${month}-${day.padStart(2,"0")}`;
     }
   }
 
@@ -1775,31 +1354,31 @@ function loadCertificateSubform(recordID) {
   document.getElementById("certificateuploadsec").style.display = "block";
 
   ZOHO.CREATOR.DATA.getRecords({
-    app_name: "feiny-app",
+    app_name:    "feiny-app",
     report_name: "All_Certificate_Details",
-    criteria: "Lot_Master_ID == " + recordID,
+    criteria:    "Lot_Master_ID == " + recordID
   })
-    .then(function (response) {
-      const certData = response.data || [];
+  .then(function (response) {
+    
+    const certData = response.data || [];
+    
+    if (certData.length === 0) {
+      console.log("No certificate rows found — adding blank row");
+      addCertificateRow();
+      return;
+    }
+    
+    // Newest first
+    certData.slice().reverse().forEach(function (item) {
 
-      if (certData.length === 0) {
-        console.log("No certificate rows found — adding blank row");
-        addCertificateRow();
-        return;
-      }
+      // Date formatting for <input type="date"> — convert from Zoho's dd-Mon-yyyy or ISO format to yyyy-mm-dd
+      const formattedDate = formatToYYYYMMDD(item.Date_field);
+      const tr = document.createElement("tr");
+      tr.classList.add("cert-row");
+      tr.dataset.certRecordId = item.ID || "";
 
-      // Newest first
-      certData
-        .slice()
-        .reverse()
-        .forEach(function (item) {
-          // Date formatting for <input type="date"> — convert from Zoho's dd-Mon-yyyy or ISO format to yyyy-mm-dd
-          const formattedDate = formatToYYYYMMDD(item.Date_field);
-          const tr = document.createElement("tr");
-          tr.classList.add("cert-row");
-          tr.dataset.certRecordId = item.ID || "";
-
-          tr.innerHTML = `
+        
+tr.innerHTML = `
         <td>
           <button type="button" class="remove-btn" onclick="removeRow(this)">❌</button>
         </td>
@@ -1810,74 +1389,74 @@ function loadCertificateSubform(recordID) {
         <td input type="date" class="cert-date" value="${formattedDate}">
       </td>
         <td>
-          <textarea class="cert-notes">${item.Notes || ""}</textarea>
+          <textarea class="cert-notes">${item.Notes ||  ""}</textarea>
         </td>
         <td><select class="cert-lab"></select></td>
         <td><select class="cert-lab-desc"></select></td>
         <td><select class="cert-lab-sup"></select></td>
       `;
 
-          certTbody.appendChild(tr);
-
+        certTbody.appendChild(tr);
+        
           //////////////// Fetch file from zoho creator
           // const fullUrl = window.location.origin + item.Certificate_Single;
-
+          
           const fileCell = tr.querySelector(".cert-file-cell");
-
+          
           // console.log("item.Certificate_Single:", item.Certificate_Single);
           if (item.Certificate_Single) {
-            const fullUrl =
-              "https://creator.zoho.com" + item.Certificate_Single;
+            const fullUrl = "https://creator.zoho.com" + item.Certificate_Single;
             // console.log("Certificate subform response:", fullUrl)
 
-            function getFileNameFromUrl(url) {
-              try {
-                const decodedUrl = decodeURIComponent(url);
-                const match = decodedUrl.match(/[?&]filepath=([^&]+)/);
+function getFileNameFromUrl(url) {
+  try {
+    const decodedUrl = decodeURIComponent(url);
+    const match = decodedUrl.match(/[?&]filepath=([^&]+)/);
 
-                let fileName =
-                  match && match[1] ? match[1] : decodedUrl.split("/").pop();
+    let fileName = match && match[1]
+      ? match[1]
+      : decodedUrl.split("/").pop();
 
-                fileName = fileName || "Download File";
+    fileName = fileName || "Download File";
 
-                fileName = fileName.replace(/^\d+_/, "");
+    fileName = fileName.replace(/^\d+_/, "");
 
-                return fileName;
-              } catch (e) {
-                return "Download File";
-              }
-            }
+    return fileName;
+  } catch (e) {
+    return "Download File";
+  }
+}
+            
+const fileName = getFileNameFromUrl(fullUrl);
 
-            const fileName = getFileNameFromUrl(fullUrl);
-
-            fileCell.innerHTML = `
+fileCell.innerHTML = `
   <a href="${fullUrl}" target="_blank" rel="noopener noreferrer">
     ${fileName}
   </a>
 `;
-          } else {
-            fileCell.innerHTML = "No file";
-          }
-
-          populateRowSelects(tr);
-
-          // Set saved dropdown values after options are injected
-          setTimeout(function () {
-            tr.querySelector(".cert-lab").value = item.Lab?.ID || "";
-
-            tr.querySelector(".cert-lab-desc").value =
-              item.Lab_Descriptor?.ID || "";
-            ("");
-
-            tr.querySelector(".cert-lab-sup").value =
-              item.Laboratory_Supplement?.ID || "";
-          }, 300);
-        });
-    })
-    .catch(function (error) {
-      console.error("Error fetching certificate subform:", error);
-      // Fail gracefully — add a blank row so the user can still add certificates
-      addCertificateRow();
-    });
+} else {
+  fileCell.innerHTML = "No file";
 }
-Test;
+
+populateRowSelects(tr);
+
+      // Set saved dropdown values after options are injected
+      setTimeout(function () {
+        tr.querySelector(".cert-lab").value =
+          item.Lab?.ID || "";
+
+        tr.querySelector(".cert-lab-desc").value =
+          item.Lab_Descriptor?.ID || ""; "";
+
+        tr.querySelector(".cert-lab-sup").value =
+          item.Laboratory_Supplement?.ID || "";
+      }, 300);
+    });
+  })
+  .catch(function (error) {
+    console.error("Error fetching certificate subform:", error);
+    // Fail gracefully — add a blank row so the user can still add certificates
+    addCertificateRow();
+  });
+
+}
