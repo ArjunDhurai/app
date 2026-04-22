@@ -1,0 +1,1032 @@
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f6f7f8;
+}
+
+.creator-container {
+  padding: 18px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  max-width: 1300px;
+  margin-bottom: -30px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #fff;
+  border: 1px solid #e1e3e6;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 2px;
+}
+
+.section-wrapper {
+  max-width: 100%;
+  padding: 0 16px;
+  /* SAME as partnership section */
+}
+
+/* Card consistency */
+.card {
+  margin: 0 0 20px 0;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+/* Pricing card – DO NOT override width */
+.pricing-card {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Grid spacing same as other sections */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 25px;
+  /* horizontal space */
+  row-gap: 10px;
+  margin-bottom: 4px;
+}
+
+/* Field sizing */
+.field input,
+.field select {
+  height: 36px;
+}
+
+.diamond-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.diamond-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.diamond-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.diamond-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix textarea height */
+textarea {
+  min-height: 40px;
+  resize: vertical;
+}
+
+/* Fix row 6 alignment */
+.row-6 {
+  align-items: stretch;
+}
+
+.row-6 .field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make image box same height */
+.image-box {
+  height: 100%;
+}
+
+.image-upload {
+  width: 45px;
+  height: 150px;
+  border: 1px dashed #cfcfcf;
+  border-radius: 6px;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .diamond-fields-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .diamond-fields-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .row-6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= GRIDS ================= */
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* 4-column grid */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+/* Field wrapper */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs consistency */
+.field input,
+.field select,
+.field textarea {
+  height: 28px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 196px;
+}
+
+/* File input fix */
+.field input[type="file"] {
+  padding: 4px;
+  height: 38px;
+}
+
+/* Textarea */
+.field textarea {
+  height: 50px;
+  /* reduced from 80px */
+  resize: vertical;
+  /* user can expand if needed */
+}
+
+/* Full width fields */
+.full-width {
+  grid-column: span 4;
+}
+
+.half-width {
+  grid-column: span 2;
+}
+
+/* Compact textarea */
+.small-textarea {
+  height: 45px;
+  resize: vertical;
+}
+
+/* ================= COST SUMMARY ================= */
+
+.cost-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 fields per row */
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.cost-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.cost-field label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.cost-field input {
+  height: 38px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+  font-size: 13px;
+  width: 80%;
+  height: 28px;
+  transition: 0.2s ease;
+}
+
+.cost-field input:focus {
+  border-color: #5c6bc0;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.15);
+}
+
+/* Highlight important fields */
+.highlight-field input {
+  background: #f8f9ff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cost-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cost-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= PRICING CARD ================= */
+.pricing-card {
+  margin: 10px 4px 6px 0;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* ✅ GAP BELOW HEADING (Pricing) */
+.pricing-card b {
+  display: block;
+  margin-bottom: 16px; /* 🔥 main fix */
+  font-size: 16px;
+}
+
+/* ================= GRID LAYOUT ================= */
+.pricing-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px; /* space between fields */
+  align-items: flex-start;
+}
+
+/* ================= FIELD ================= */
+.pricing-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* space between label & input */
+  width: 100%;
+}
+
+/* ================= LABEL ================= */
+.pricing-field label {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ================= INPUTS ================= */
+.pricing-field input,
+.pricing-field select {
+  height: 36px;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* ================= GLOBAL FIELD ================= */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* ================= GLOBAL LABEL ================= */
+label {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ================= GLOBAL INPUT ================= */
+input,
+select {
+  height: 32px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown_cls {
+  width: 100%;
+}
+
+/* ================= TEXTAREA ================= */
+textarea {
+  height: 64px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 6px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ================= COLOR STONE ================= */
+.colorstone-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 16px;
+}
+
+/* ================= IMAGE UPLOAD ================= */
+.image-upload {
+  width: 200px;
+  height: 130px;
+  border: 1px dashed #cfcfcf;
+  border-radius: 6px;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.image-upload input {
+  display: none;
+}
+
+/* ================= DIMENSIONS ================= */
+.dimensions-grid {
+  display: flex;
+  gap: 40px; /* ✅ Reduced from 85px so weight block aligns naturally */
+  align-items: flex-start; /* ✅ Top-align all blocks */
+}
+
+.dim-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dim-title {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.dim-row {
+  display: flex;
+  gap: 8px;
+}
+
+.dim-row input {
+  width: 95px;
+}
+/* ================= CERTIFICATES ================= */
+.cert-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.cert-grid label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+}
+
+/* ================= SUBFORMS COMMON ================= */
+
+/* Scroll wrapper */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+/* Table */
+.subform-table {
+  min-width: 900px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Header + Cells */
+.subform-table th,
+.subform-table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Header */
+.subform-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Inputs */
+.subform-table input,
+.subform-table select,
+.subform-table textarea {
+  width: 100%;
+  min-width: 120px;
+  box-sizing: border-box;
+  font-size: 12px;
+  padding: 4px;
+}
+
+/* File input */
+.subform-table input[type="file"] {
+  min-width: 180px;
+}
+
+/* Textarea */
+.subform-table textarea {
+  resize: vertical;
+  min-height: 40px;
+}
+
+/* ================= REMOVE BUTTON STYLE ================= */
+
+/* DO NOT HIDE BUTTONS ❌ */
+
+/* Style your remove button */
+.remove-btn {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.remove-btn:hover {
+  background: #e60000;
+}
+/* Optional: Better spacing for multiple subforms */
+.card {
+  overflow: hidden;
+}
+.colorstone-fields-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.colorstone-fields-grid .field {
+  width: calc(25% - 12px);
+  /* 4 fields in one row */
+}
+
+/* Long description full width */
+.colorstone-fields-grid .field.full-width {
+  width: 100%;
+}
+
+/* ===== Jewellery Lot Master (Match Lot Master Size) ===== */
+/* Card */
+.jewellery-master-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 0 24px;
+  box-shadow: 0 0 0 1px #e3e3e3;
+  margin-right: 0px;
+  margin-top: 100px;
+  margin-left: 17px;
+}
+
+/* Title */
+.jmb-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Grid */
+.jmb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Fields */
+.jmb-field {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 30%;
+}
+
+/* Labels */
+.jmb-field label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+.jmb-field input,
+.jmb-field select {
+  height: 38px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+}
+
+/* File input */
+.jmb-field input[type="file"] {
+  height: auto;
+}
+
+/* Textareas */
+.jmb-field textarea {
+  height: 110px;
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+  resize: vertical;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .jmb-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ensure normal row flow */
+.jmb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  grid-auto-flow: row;
+}
+
+/* Row 4, Column 3 */
+.desc-field {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+/* Row 4, Column 4 */
+.inst-field {
+  grid-column: 4;
+  grid-row: 4;
+}
+
+/* ================= MATCH Jewellery Lot Master CARD ================= */
+
+/* Jewellery Lot Master card (reference size) */
+.jewellery-master-box {
+  max-width: 100%;
+  margin: 12px 24px;
+  padding: 20px 22px;
+  border-radius: 12px;
+  margin-right: 20px;
+  margin-left: 17px;
+}
+
+/* Jewellery 1 – Metal Details card */
+.metal-subform-card {
+  max-width: 100%;
+  /* SAME width */
+  margin: 12px 24px;
+  /* SAME left & right gap */
+  padding: 20px 22px;
+  /* SAME inner spacing */
+  border-radius: 12px;
+  margin-right: 0px;
+  margin-left: 0px;
+  /* SAME rounding */
+}
+
+/* Scroll only inside table, not card */
+.metal-subform-card .table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table should not force card wider */
+.subform-table {
+  width: 100%;
+  min-width: 1200px;
+  /* keeps scroll, not card stretch */
+}
+
+/* ===== ONLY Jewellery 1 – Metal Details ===== */
+.metal-subform-card .subform-table th:nth-child(3),
+.metal-subform-card .subform-table td:nth-child(3) {
+  min-width: 150px;
+  /* Metal Type ONLY */
+}
+
+.metal-subform-card .subform-table th:nth-child(11),
+.metal-subform-card .subform-table td:nth-child(11) {
+  min-width: 260px;
+  /* Remarks ONLY */
+}
+
+/* Inputs inside those columns ONLY */
+.metal-subform-card .subform-table td:nth-child(3) select,
+.metal-subform-card .subform-table td:nth-child(11) textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Jewellery 3 – Color Stone : Remarks ONLY ===== */
+.metal-subform-card .subform-table th:nth-child(19),
+.metal-subform-card .subform-table td:nth-child(19) {
+  min-width: 20px;
+  /* increase as needed */
+}
+
+/* Make textarea fill the column */
+.metal-subform-card .subform-table td:nth-child(19) textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.metal-subform-card .subform-table th:nth-child(17),
+.metal-subform-card .subform-table td:nth-child(17) {
+  min-width: 20px;
+  /* increase column width */
+  text-align: center;
+}
+
+/* Duty column */
+.metal-subform-card .subform-table th:nth-child(18),
+.metal-subform-card .subform-table td:nth-child(18) {
+  min-width: 20px;
+  /* increase column width */
+  text-align: center;
+}
+
+/* ===== Jewellery 2 – Diamond Details : Remarks ONLY ===== */
+.metal-subform-card .subform-table th:nth-child(8),
+.metal-subform-card .subform-table td:nth-child(8) {
+  min-width: 20px;
+  /* increase width */
+}
+
+/* Make textarea fill the column */
+.metal-subform-card .subform-table td:nth-child(8) textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.subform-table th:nth-child(8),
+.subform-table td:nth-child(8) {
+  min-width: 260px;
+  /* increase as needed */
+}
+
+/* Make textarea fill the column */
+.subform-table td:nth-child(8) textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Jewellery 3 – Color Stone : Column Width Fix ===== */
+
+/* Stone Type (2nd column) */
+.metal-subform-card .subform-table th:nth-child(2),
+.metal-subform-card .subform-table td:nth-child(2) {
+  min-width: 180px;
+}
+
+/* C.S (17th column) */
+.metal-subform-card .subform-table th:nth-child(17),
+.metal-subform-card .subform-table td:nth-child(17) {
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Duty (18th column) */
+.metal-subform-card .subform-table th:nth-child(18),
+.metal-subform-card .subform-table td:nth-child(18) {
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Remarks (19th column) */
+.metal-subform-card .subform-table th:nth-child(19),
+.metal-subform-card .subform-table td:nth-child(19) {
+  min-width: 280px;
+}
+
+/* Make textarea fill full Remarks column */
+.metal-subform-card .subform-table td:nth-child(19) textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.metal-subform-card .subform-table th:nth-child(2),
+.metal-subform-card .subform-table td:nth-child(2) {
+  min-width: 200px;
+}
+
+/* Force select to fill the cell */
+.metal-subform-card .subform-table td:nth-child(2) select {
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-right: 28px;
+  /* space for dropdown arrow */
+}
+
+/* ================= JEWELLERY LOT MASTER ================= */
+
+.jewellery-master-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 12px 0px;
+  box-shadow: 0 0 0 1px #e3e3e3;
+}
+
+.jewellery-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* GRID WITH REDUCED GAP */
+.jewellery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 14px;
+  /* 🔥 Reduced horizontal gap */
+  row-gap: 16px;
+  /* Vertical spacing */
+}
+
+/* FIELD */
+.jm-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.jm-field label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* INPUTS */
+.jm-field input,
+.jm-field select,
+.jm-field textarea {
+  width: 80%;
+  height: 28px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+}
+
+/* TEXTAREA */
+.jm-field textarea {
+  height: 90px;
+  resize: vertical;
+}
+
+/* Focus effect */
+.jm-field input:focus,
+.jm-field select:focus,
+.jm-field textarea:focus {
+  border-color: #5c6bc0;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.15);
+}
+
+/* Full width fields (Description + Instruction) */
+.full-width {
+  grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .jewellery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .full-width {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .jewellery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+}
+
+/* ================= Jewellery 2 – Diamond Details : Remarks FIX ================= */
+
+/* Ensure table can expand horizontally */
+.metal-subform-card .subform-table {
+  table-layout: auto;
+}
+
+/* Force Remarks column width */
+.metal-subform-card .subform-table th:nth-child(8),
+.metal-subform-card .subform-table td:nth-child(8) {
+  min-width: 300px !important;
+  max-width: 300px !important;
+}
+
+/* Force textarea to fill the column */
+.metal-subform-card .subform-table td:nth-child(8) textarea {
+  width: 100% !important;
+  min-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* 💎 Diamond Section Styling */
+
+.diamond-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.diamond-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* ✅ Row 6 custom layout */
+.row-6 {
+  grid-template-columns: 1fr 1.2fr 2fr 1.2fr;
+  align-items: start;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #5c6bc0;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.15);
+}
+
+/* Long Description */
+.long-desc textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+/* Image Upload Box */
+.image-upload {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 52px;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.image-upload input {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .diamond-fields-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .diamond-fields-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .row-6 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ================= BUTTONS ================= */
+.btn-outline {
+  margin-top: 6px;
+  padding: 5px 14px;
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.save-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.save-btn {
+  background: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+}
