@@ -1013,6 +1013,7 @@ textarea {
   background: #fff;
   border-radius: 6px;
   font-size: 11px;
+  width: 100px;
 }
 
 .save-container {
