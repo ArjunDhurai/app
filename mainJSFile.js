@@ -1,5 +1,3 @@
-// Deleted
-
 let certificateLookupCache = {
   labs: [],
   descriptors: [],
