@@ -1259,8 +1259,7 @@ function saveRecord() {
         Culet: document.getElementById("dia_culet")?.value || "",
         Symmetry: document.getElementById("dia_symmetry")?.value || "",
         Fluorescence1: document.getElementById("dia_fluorescence")?.value || "",
-        Fluorescence_Color:
-          document.getElementById("dia_colour_fluorescence")?.value || "",
+        Fluorescence_Color:document.getElementById("dia_colour_fluorescence")?.value || "",
         Lab: document.getElementById("dia_lab")?.value || "",
         Length_mm: getNumber("dia_length"),
         Width_mm: getNumber("dia_width"),
@@ -1272,10 +1271,8 @@ function saveRecord() {
         Total_Price: getNumber("total_price"),
         Rapport_Price1: getNumber("rapport_price"),
         Quantity: getNumber("quantity"),
-        Short_Description1:
-          document.getElementById("diashort_description")?.value || "",
-        Long_Description2:
-          document.getElementById("dialong_description")?.value || "",
+        Short_Description1:document.getElementById("diashort_description")?.value || "",
+        Long_Description2:document.getElementById("dialong_description")?.value || "",
       },
     },
   };
@@ -1882,3 +1879,82 @@ function loadCertificateSubform(recordID) {
       addCertificateRow();
     });
 }
+function saveRecord() {
+
+    const recId = new URLSearchParams(window.location.search).get("recId");
+
+    // Common payload
+    const recordData = {
+        "Memo_No": document.getElementById("memo_no").value || "",
+        "Stock_On_Hand": getNumber("Stock_On_Hand"),
+        "Status": document.getElementById("Status").value || ""
+    };
+
+    // ===============================
+    // 🔄 UPDATE
+    // ===============================
+    if (recId) {
+
+        console.log("REC ID:", recId);
+
+        ZOHO.CREATOR.DATA.updateRecordById({
+            app_name: "feiny-app",
+            report_name: "All_Lot_Master",
+            id: String(recId),
+            payload: {
+                data: recordData
+            }
+        })
+        .then(function (res) {
+            console.log("✅ Updated:", res);
+
+            if (res.code === 3000) {
+                alert("✅ Updated Successfully");
+            } else {
+                alert("❌ Update failed: " + (res.message || "Unknown error"));
+            }
+        })
+        .catch(function (error) {
+            console.error("❌ FINAL ERROR:", error);
+            alert("❌ Error while updating record");
+        });
+
+    } 
+    
+    // ===============================
+    // ➕ CREATE
+    // ===============================
+    else {
+
+        const config = {
+            app_name: "feiny-app",
+            form_name: "All_Lot_Master",
+            payload: {
+                data: recordData
+            }
+        };
+
+        ZOHO.CREATOR.DATA.addRecords(config)
+        .then(function (response) {
+
+            console.log("✅ Created:", response);
+
+            if (response.code === 3000) {
+
+                alert("✅ Record Saved Successfully");
+
+                const newId = response.data[0].ID; // ✅ FIX (array format)
+
+                window.location.href = "?recId=" + newId;
+
+            } else {
+                alert("❌ Error saving record: " + (response.message || "Unknown error"));
+            }
+
+        })
+        .catch(function (error) {
+            console.error("❌ Save Error:", error);
+            alert("❌ Error while saving record");
+        });
+    }
+} // ✅ saveMemo CLOSED
