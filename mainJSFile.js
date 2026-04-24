@@ -1,3 +1,5 @@
+// Afru Version
+
 let certificateLookupCache = {
   labs: [],
   descriptors: [],
