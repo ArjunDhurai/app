@@ -481,108 +481,24 @@ function removeRow(btn) {
 
 function loadCountryDropdown() {
   const countries = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Belgium",
-    "Bhutan",
-    "Bolivia",
-    "Brazil",
-    "Bulgaria",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Chile",
-    "China",
-    "Colombia",
-    "Costa Rica",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Dominican Republic",
-    "Ecuador",
-    "Egypt",
-    "Estonia",
-    "Ethiopia",
-    "Finland",
-    "France",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Greenland",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kuwait",
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lithuania",
-    "Luxembourg",
-    "Malaysia",
-    "Maldives",
-    "Mexico",
-    "Mongolia",
-    "Morocco",
-    "Myanmar",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nigeria",
-    "North Korea",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Qatar",
-    "Romania",
-    "Russia",
-    "Saudi Arabia",
-    "Singapore",
-    "South Africa",
-    "South Korea",
-    "Spain",
-    "Sri Lanka",
-    "Sweden",
-    "Switzerland",
-    "Thailand",
-    "Turkey",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-    "Vietnam",
-    "Yemen",
-    "Zambia",
-    "Zimbabwe",
+    "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina",
+    "Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain",
+    "Bangladesh","Belgium","Bhutan","Bolivia","Brazil","Bulgaria",
+    "Cambodia","Cameroon","Canada","Chile","China","Colombia",
+    "Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark",
+    "Dominican Republic","Ecuador","Egypt","Estonia","Ethiopia",
+    "Finland","France","Georgia","Germany","Ghana","Greece","Greenland",
+    "Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland",
+    "Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya",
+    "Kuwait","Laos","Latvia","Lebanon","Lithuania","Luxembourg",
+    "Malaysia","Maldives","Mexico","Mongolia","Morocco","Myanmar",
+    "Nepal","Netherlands","New Zealand","Nigeria","North Korea",
+    "Norway","Oman","Pakistan","Philippines","Poland","Portugal",
+    "Qatar","Romania","Russia","Saudi Arabia","Singapore",
+    "South Africa","South Korea","Spain","Sri Lanka","Sweden",
+    "Switzerland","Thailand","Turkey","Ukraine",
+    "United Arab Emirates","United Kingdom","United States",
+    "Uruguay","Uzbekistan","Vietnam","Yemen","Zambia","Zimbabwe"
   ];
   const select = document.getElementById("origin_country");
   if (!select) return;
@@ -597,108 +513,24 @@ function loadCountryDropdown() {
 
 function loadCountrycutDropdown() {
   const countries = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Belgium",
-    "Bhutan",
-    "Bolivia",
-    "Brazil",
-    "Bulgaria",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Chile",
-    "China",
-    "Colombia",
-    "Costa Rica",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Dominican Republic",
-    "Ecuador",
-    "Egypt",
-    "Estonia",
-    "Ethiopia",
-    "Finland",
-    "France",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Greenland",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kuwait",
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lithuania",
-    "Luxembourg",
-    "Malaysia",
-    "Maldives",
-    "Mexico",
-    "Mongolia",
-    "Morocco",
-    "Myanmar",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nigeria",
-    "North Korea",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Qatar",
-    "Romania",
-    "Russia",
-    "Saudi Arabia",
-    "Singapore",
-    "South Africa",
-    "South Korea",
-    "Spain",
-    "Sri Lanka",
-    "Sweden",
-    "Switzerland",
-    "Thailand",
-    "Turkey",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-    "Vietnam",
-    "Yemen",
-    "Zambia",
-    "Zimbabwe",
+    "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina",
+    "Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain",
+    "Bangladesh","Belgium","Bhutan","Bolivia","Brazil","Bulgaria",
+    "Cambodia","Cameroon","Canada","Chile","China","Colombia",
+    "Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark",
+    "Dominican Republic","Ecuador","Egypt","Estonia","Ethiopia",
+    "Finland","France","Georgia","Germany","Ghana","Greece","Greenland",
+    "Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland",
+    "Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya",
+    "Kuwait","Laos","Latvia","Lebanon","Lithuania","Luxembourg",
+    "Malaysia","Maldives","Mexico","Mongolia","Morocco","Myanmar",
+    "Nepal","Netherlands","New Zealand","Nigeria","North Korea",
+    "Norway","Oman","Pakistan","Philippines","Poland","Portugal",
+    "Qatar","Romania","Russia","Saudi Arabia","Singapore",
+    "South Africa","South Korea","Spain","Sri Lanka","Sweden",
+    "Switzerland","Thailand","Turkey","Ukraine",
+    "United Arab Emirates","United Kingdom","United States",
+    "Uruguay","Uzbekistan","Vietnam","Yemen","Zambia","Zimbabwe"
   ];
   const select = document.getElementById("country_cut");
   if (!select) return;
@@ -1186,8 +1018,21 @@ document
       });
   });
 
-/* ================= SAVE → ZOHO CREATOR ================= */
+/* ================= HELPER FUNCTION - GET NUMBER ================= */
+function getNumber(id) {
+  let val = document.getElementById(id)?.value;
+  if (!val) return null;
+  val = val.trim().replace(",", ".");
+  const num = Number(val);
+  return isNaN(num) ? null : num;
+}
+
+/* =================================================================================
+   SAVE → ZOHO CREATOR (CUSTOM UPDATE/CREATE LOGIC)
+================================================================================= */
 function saveRecord() {
+  const recId = new URLSearchParams(window.location.search).get("recId");
+
   const itemType = document.getElementById("itemType").value;
   const In_SKU = document.getElementById("In_SKU").value;
 
@@ -1203,147 +1048,223 @@ function saveRecord() {
     saveBtn.disabled = true;
   }
 
-  function getNumber(id) {
-    let val = document.getElementById(id)?.value;
-    if (!val) return null;
-    val = val.trim().replace(",", ".");
-    const num = Number(val);
-    return isNaN(num) ? null : num;
-  }
-
-  const config = {
-    app_name: "feiny-app",
-    form_name: "Lot_Master",
-    payload: {
-      data: {
-        Select: itemType,
-        In_SKU: In_SKU,
-        Stock_On_Hand: getNumber("Stock_On_Hand"),
-        Status: document.getElementById("Status")?.value || "",
-        Treatment: document.getElementById("treatment_lookup")?.value || "",
-        Species: document.getElementById("species_lookup")?.value || "",
-        Surface: document.getElementById("surface_lookup")?.value || "",
-        Shape: document.getElementById("shape_lookup")?.value || "",
-        Origin: document.getElementById("origin_country")?.value || "",
-        Country_of_Cut: document.getElementById("country_cut")?.value || "",
-        HTS: document.getElementById("hts_field")?.value || "",
-        Code: document.getElementById("code_field")?.value || "",
-        Rapport_Price: getNumber("Rapport_Price"),
-        Rough_Lot: document.getElementById("rough_lot")?.value || "",
-        Name1: document.getElementById("cs_short_description")?.value || "",
-        Long_Description:
-          document.getElementById("cs_long_description")?.value || "",
-        length_field: getNumber("min_length"),
-        Width: getNumber("min_width"),
-        Height: getNumber("min_height"),
-        Length_field1: getNumber("max_length"),
-        Width1: getNumber("max_width"),
-        Height1: getNumber("max_height"),
-        weight: getNumber("weight"),
-        AGL: document.getElementById("cert_agl")?.checked || false,
-        GIA: document.getElementById("cert_gia")?.checked || false,
-        Gub: document.getElementById("cert_gubelin")?.checked || false,
-        SSEF: document.getElementById("cert_ssef")?.checked || false,
-        Other: document.getElementById("cert_other")?.checked || false,
-        Description2:
-          document.getElementById("certificate_details")?.value || "",
-        Price4: getNumber("Price4"),
-        Minimum_Price: getNumber("MinimumPrice"),
-        Unit: document.getElementById("unit_lookup")?.value || "",
-        Partnership_Details: getPartnerRowsData(),
-        Shape3: document.getElementById("dia_shape")?.value || "",
-        Color: document.getElementById("dia_color")?.value || "",
-        Clarity: document.getElementById("dia_clarity")?.value || "",
-        Cut: document.getElementById("dia_cut")?.value || "",
-        Polish: document.getElementById("dia_polish")?.value || "",
-        Culet: document.getElementById("dia_culet")?.value || "",
-        Symmetry: document.getElementById("dia_symmetry")?.value || "",
-        Fluorescence1: document.getElementById("dia_fluorescence")?.value || "",
-        Fluorescence_Color:document.getElementById("dia_colour_fluorescence")?.value || "",
-        Lab: document.getElementById("dia_lab")?.value || "",
-        Length_mm: getNumber("dia_length"),
-        Width_mm: getNumber("dia_width"),
-        Depth1: getNumber("dia_depth"),
-        Table: getNumber("dia_table"),
-        Depth2: getNumber("dia_depth_percent"),
-        Weight_Ct: getNumber("dia_weight"),
-        Price_Per_carat: getNumber("price_per_carat"),
-        Total_Price: getNumber("total_price"),
-        Rapport_Price1: getNumber("rapport_price"),
-        Quantity: getNumber("quantity"),
-        Short_Description1:document.getElementById("diashort_description")?.value || "",
-        Long_Description2:document.getElementById("dialong_description")?.value || "",
-      },
-    },
+  // Common record data
+  const recordData = {
+    Select: itemType,
+    In_SKU: In_SKU,
+    Stock_On_Hand: getNumber("Stock_On_Hand"),
+    Status: document.getElementById("Status")?.value || "",
+    Treatment: document.getElementById("treatment_lookup")?.value || "",
+    Species: document.getElementById("species_lookup")?.value || "",
+    Surface: document.getElementById("surface_lookup")?.value || "",
+    Shape: document.getElementById("shape_lookup")?.value || "",
+    Origin: document.getElementById("origin_country")?.value || "",
+    Country_of_Cut: document.getElementById("country_cut")?.value || "",
+    HTS: document.getElementById("hts_field")?.value || "",
+    Code: document.getElementById("code_field")?.value || "",
+    Rapport_Price: getNumber("Rapport_Price"),
+    Rough_Lot: document.getElementById("rough_lot")?.value || "",
+    Name1: document.getElementById("cs_short_description")?.value || "",
+    Long_Description:
+      document.getElementById("cs_long_description")?.value || "",
+    length_field: getNumber("min_length"),
+    Width: getNumber("min_width"),
+    Height: getNumber("min_height"),
+    Length_field1: getNumber("max_length"),
+    Width1: getNumber("max_width"),
+    Height1: getNumber("max_height"),
+    weight: getNumber("weight"),
+    AGL: document.getElementById("cert_agl")?.checked || false,
+    GIA: document.getElementById("cert_gia")?.checked || false,
+    Gub: document.getElementById("cert_gubelin")?.checked || false,
+    SSEF: document.getElementById("cert_ssef")?.checked || false,
+    Other: document.getElementById("cert_other")?.checked || false,
+    Description2:
+      document.getElementById("certificate_details")?.value || "",
+    Price4: getNumber("Price4"),
+    Minimum_Price: getNumber("MinimumPrice"),
+    Unit: document.getElementById("unit_lookup")?.value || "",
+    Partnership_Details: getPartnerRowsData(),
+    Shape3: document.getElementById("dia_shape")?.value || "",
+    Color: document.getElementById("dia_color")?.value || "",
+    Clarity: document.getElementById("dia_clarity")?.value || "",
+    Cut: document.getElementById("dia_cut")?.value || "",
+    Polish: document.getElementById("dia_polish")?.value || "",
+    Culet: document.getElementById("dia_culet")?.value || "",
+    Symmetry: document.getElementById("dia_symmetry")?.value || "",
+    Fluorescence1: document.getElementById("dia_fluorescence")?.value || "",
+    Fluorescence_Color:
+      document.getElementById("dia_colour_fluorescence")?.value || "",
+    Lab: document.getElementById("dia_lab")?.value || "",
+    Length_mm: getNumber("dia_length"),
+    Width_mm: getNumber("dia_width"),
+    Depth1: getNumber("dia_depth"),
+    Table: getNumber("dia_table"),
+    Depth2: getNumber("dia_depth_percent"),
+    Weight_Ct: getNumber("dia_weight"),
+    Price_Per_carat: getNumber("price_per_carat"),
+    Total_Price: getNumber("total_price"),
+    Rapport_Price1: getNumber("rapport_price"),
+    Quantity: getNumber("quantity"),
+    Short_Description1:
+      document.getElementById("diashort_description")?.value || "",
+    Long_Description2:
+      document.getElementById("dialong_description")?.value || "",
   };
 
-  console.log("Saving config:", config);
+  console.log("Saving config:", recordData);
 
-  ZOHO.CREATOR.DATA.addRecords(config)
-    .then(function (response) {
-      // console.log("Create response:", response);
-      let recordId = null;
+  /* ===============================
+      🔄 UPDATE
+  =============================== */
+  if (recId) {
+    console.log("REC ID:", recId);
 
-      if (response.code === 3000 || response.code === "3000") {
-        if (
-          response.data &&
-          Array.isArray(response.data) &&
-          response.data.length > 0
-        )
-          recordId = response.data[0].ID;
-        else if (response.data && response.data.ID) recordId = response.data.ID;
-        else if (response.details && response.details.id)
-          recordId = response.details.id;
-        else if (response.id) recordId = response.id;
-
-        if (!recordId)
-          throw new Error(
-            "Record created but ID not found: " + JSON.stringify(response),
-          );
-
-        let uploadPromises = [];
-        const certPromises = createCertificateRecords(In_SKU);
-        if (certPromises && certPromises.length > 0)
-          uploadPromises = uploadPromises.concat(certPromises);
-        if (recordId && diaImageFile)
-          uploadPromises.push(uploadDiaImage(recordId, diaImageFile));
-        if (recordId && stoneImageFile)
-          uploadPromises.push(uploadStoneImage(recordId, stoneImageFile));
-
-        return Promise.all(uploadPromises);
-      } else {
-        throw new Error(
-          "Failed to create record: " +
-            (response.message || JSON.stringify(response)),
-        );
-      }
+    ZOHO.CREATOR.DATA.updateRecordById({
+      app_name: "feiny-app",
+      form_name: "Lot_Master",
+      id: String(recId),
+      payload: {
+        data: recordData,
+      },
     })
-    .then(function (uploadResults) {
-      // console.log("Upload results:", uploadResults);
-      const successCount =
-        uploadResults?.filter((u) => u.type === "certificate" && u.success)
-          .length || 0;
-      let message = "Record created successfully!";
-      if (successCount > 0)
-        message += ` ${successCount} certificate(s) created.`;
-      alert(message);
-      certificateFiles.clear();
-      certificateFilesToUpload = [];
-      ZOHO.CREATOR.UTIL.navigateTo({
-        url: "#Report:All_Color_Stone",
-        target: "same",
+      .then(function (res) {
+        console.log("✅ Updated:", res);
+
+        if (res.code === 3000 || res.code === "3000") {
+          alert("✅ Updated Successfully");
+
+          // Handle file uploads after update
+          let uploadPromises = [];
+          const certPromises = createCertificateRecords(In_SKU);
+          if (certPromises && certPromises.length > 0)
+            uploadPromises = uploadPromises.concat(certPromises);
+          if (recId && diaImageFile)
+            uploadPromises.push(uploadDiaImage(recId, diaImageFile));
+          if (recId && stoneImageFile)
+            uploadPromises.push(uploadStoneImage(recId, stoneImageFile));
+
+          return Promise.all(uploadPromises);
+        } else {
+          alert("❌ Update failed: " + (res.message || "Unknown error"));
+          throw new Error(res.message || "Update failed");
+        }
+      })
+      .then(function (uploadResults) {
+        console.log("Upload results:", uploadResults);
+        const successCount =
+          uploadResults?.filter((u) => u.type === "certificate" && u.success)
+            .length || 0;
+        let message = "Record updated successfully!";
+        if (successCount > 0)
+          message += ` ${successCount} certificate(s) created.`;
+        alert(message);
+        certificateFiles.clear();
+        certificateFilesToUpload = [];
+        ZOHO.CREATOR.UTIL.navigateTo({
+          url: "#Report:All_Lot_Master",
+          target: "same",
+        });
+      })
+      .catch(function (error) {
+        console.error("❌ FINAL ERROR:", error);
+        alert("❌ Error: " + error.message);
+      })
+      .finally(function () {
+        if (saveBtn) {
+          saveBtn.textContent = originalText;
+          saveBtn.disabled = false;
+        }
       });
-    })
-    .catch(function (error) {
-      console.error("Save error:", error);
-      alert("Error: " + error.message);
-    })
-    .finally(function () {
-      if (saveBtn) {
-        saveBtn.textContent = originalText;
-        saveBtn.disabled = false;
-      }
-    });
+  }
+  /* ===============================
+      ➕ CREATE
+  =============================== */
+  else {
+    const config = {
+      app_name: "feiny-app",
+      form_name: "Lot_Master",
+      payload: {
+        data: recordData,
+      },
+    };
+
+    let createdRecordId = null; // Store ID for later use
+
+    ZOHO.CREATOR.DATA.addRecords(config)
+      .then(function (response) {
+        console.log("✅ Created:", response);
+
+        if (response.code === 3000 || response.code === "3000") {
+          alert("✅ Record Saved Successfully");
+
+          let recordId = null;
+          if (
+            response.data &&
+            Array.isArray(response.data) &&
+            response.data.length > 0
+          )
+            recordId = response.data[0].ID;
+          else if (response.data && response.data.ID)
+            recordId = response.data.ID;
+          else if (response.details && response.details.id)
+            recordId = response.details.id;
+          else if (response.id) recordId = response.id;
+
+          if (!recordId)
+            throw new Error(
+              "Record created but ID not found: " + JSON.stringify(response),
+            );
+
+          createdRecordId = recordId; // Store for later
+
+          // Handle file uploads after create
+          let uploadPromises = [];
+          const certPromises = createCertificateRecords(In_SKU);
+          if (certPromises && certPromises.length > 0)
+            uploadPromises = uploadPromises.concat(certPromises);
+          if (recordId && diaImageFile)
+            uploadPromises.push(uploadDiaImage(recordId, diaImageFile));
+          if (recordId && stoneImageFile)
+            uploadPromises.push(uploadStoneImage(recordId, stoneImageFile));
+
+          return Promise.all(uploadPromises);
+        } else {
+          throw new Error(
+            "Failed to create record: " +
+              (response.message || JSON.stringify(response)),
+          );
+        }
+      })
+      .then(function (uploadResults) {
+        console.log("Upload results:", uploadResults);
+        const successCount =
+          uploadResults?.filter((u) => u.type === "certificate" && u.success)
+            .length || 0;
+        let message = "Record created successfully!";
+        if (successCount > 0)
+          message += ` ${successCount} certificate(s) created.`;
+        alert(message);
+        certificateFiles.clear();
+        certificateFilesToUpload = [];
+
+        // Navigate to the report list
+        ZOHO.CREATOR.UTIL.navigateTo({
+          url: "#Report:All_Lot_Master",
+          target: "same",
+        });
+      })
+      .catch(function (error) {
+        console.error("❌ Save Error:", error);
+        alert("❌ Error: " + error.message);
+      })
+      .finally(function () {
+        if (saveBtn) {
+          saveBtn.textContent = originalText;
+          saveBtn.disabled = false;
+        }
+      });
+  }
 }
 
 /* ================= GET PARTNERSHIP SUBFORM DATA ================= */
@@ -1635,7 +1556,6 @@ ZOHO.CREATOR.UTIL.getQueryParams().then(function (params) {
   }
 });
 
-// report_name: "All_Color_Stone",
 function loadExistingRecord(recordID) {
   ZOHO.CREATOR.DATA.getRecordById({
     report_name: "All_Lot_Master",
@@ -1649,16 +1569,14 @@ function loadExistingRecord(recordID) {
       document.getElementById("itemType").value = data.Select || "";
       document.getElementById("surface_lookup").value = data.Surface?.ID || "";
       document.getElementById("species_lookup").value = data.Species?.ID || "";
-      document.getElementById("treatment_lookup").value =
-        data.Treatment?.ID || "";
+      document.getElementById("treatment_lookup").value = data.Treatment?.ID || "";
       document.getElementById("shape_lookup").value = data.Shape?.ID || "";
       document.getElementById("origin_country").value = data.Origin || "";
       document.getElementById("country_cut").value = data.Country_of_Cut || "";
       document.getElementById("hts_field").value = data.HTS || "";
       document.getElementById("code_field").value = data.Code || "";
       document.getElementById("cs_short_description").value = data.Name1 || "";
-      document.getElementById("cs_long_description").value =
-        data.Long_Description || "";
+      document.getElementById("cs_long_description").value = data.Long_Description || "";
       document.getElementById("min_length").value = data.length_field || "";
       document.getElementById("min_width").value = data.Width || "";
       document.getElementById("min_height").value = data.Height || "";
@@ -1671,29 +1589,44 @@ function loadExistingRecord(recordID) {
       document.getElementById("cert_agl").checked = data.AGL || false;
       document.getElementById("cert_gia").checked = data.GIA || false;
       document.getElementById("cert_ssef").checked = data.SSEF || false;
-      document.getElementById("certificate_details").value =
-        data.Description2 || "";
+      document.getElementById("certificate_details").value = data.Description2 || "";
       document.getElementById("Price4").value = data.Price4 || "";
       document.getElementById("MinimumPrice").value = data.Minimum_Price || "";
       document.getElementById("unit_lookup").value = data.Unit?.ID || "";
 
+      // ------------DIAMOND----------------
+      document.getElementById("dia_shape").value = data.Shape3?.ID || "";
+      document.getElementById("dia_color").value = data.Color?.ID || "";
+      document.getElementById("dia_clarity").value = data.Clarity?.ID || "";
+      document.getElementById("dia_cut").value = data.Cut?.ID || "";
+      document.getElementById("dia_polish").value = data.Polish?.ID || "";
+      document.getElementById("dia_symmetry").value = data.Symmetry?.ID || "";
+      document.getElementById("dia_culet").value = data.Culet?.ID || "";
+      document.getElementById("dia_fluorescence").value = data.Fluorescence1?.ID || "";
+      document.getElementById("dia_colour_fluorescence").value = data.Fluorescence_Color?.ID || "";
+      document.getElementById("dia_length").value = data.Length_mm || "";
+      document.getElementById("dia_width").value = data.Width_mm || "";
+      document.getElementById("dia_depth").value = data.Depth1 || "";
+      document.getElementById("dia_table").value = data.Table || "";
+      document.getElementById("dia_depth_percent").value = data.Depth2 || "";
+      document.getElementById("quantity").value = data.Quantity || "";
+      document.getElementById("price_per_carat").value = data.Price_Per_carat || "";
+      document.getElementById("total_price").value = data.Total_Price || "";
+      document.getElementById("rapport_price").value = data.Rapport_Price1 || "";
+      document.getElementById("diashort_description").value = data.Short_Description1 || "";
+      document.getElementById("dialong_description").value = data.Long_Description2 || "";
+
+
       /* ─── CERTIFICATE UPLOADS SUBFORM ─── */
       loadCertificateSubform(recordID);
 
-      // ================= PARTNERSHIP DETAILS SUBFORM =================
+      /* ─── PARTNERSHIP DETAILS SUBFORM ─── */
       var partnerData = data.Partnership_Details;
-      // console.log("PARTNER SUBFORM DATA:", partnerData);
-      // console.log("PARTNER SUBFORM DATA: " + JSON.stringify(partnerData));
-
       var partnerTbody = document.getElementById("partnerBody");
-      // document.getElementById("partnershipsec").style.display = "block";
-      // document.querySelectorAll(".partnerlookup, .partnerdatalookup, .partner_data_lookup")
       partnerTbody.innerHTML = "";
 
       if (partnerData && partnerData.length > 0) {
         partnerData.forEach(function (item) {
-          // console.log("Processing partner item:", item);
-
           var tr = document.createElement("tr");
           tr.classList.add("partner-row");
 
@@ -1703,17 +1636,24 @@ function loadExistingRecord(recordID) {
         <option value="">Select Partner</option>
       </select>
     </td>
-    <td><input type="text" class="partner-share" value="${item.Partnership_shares || ""}"></td>
-    <td><input type="text" class="partner-percent" value="${item.Partnership || ""}"></td>
-    <td><input type="text" class="commission-percent" value="${item.Commission || ""}"></td>
+    <td><input type="text" class="partner-share" value="${
+            item.Partnership_shares || ""
+          }"></td>
+    <td><input type="text" class="partner-percent" value="${
+            item.Partnership || ""
+          }"></td>
+    <td><input type="text" class="commission-percent" value="${
+            item.Commission || ""
+          }"></td>
     <td style="text-align:center">
-      <input type="checkbox" class="commission-itemized" ${item.Commission_Itemized_on_Invoice === "true" ? "checked" : ""}>
+      <input type="checkbox" class="commission-itemized" ${
+            item.Commission_Itemized_on_Invoice === "true" ? "checked" : ""
+          }>
     </td>
     <td><textarea class="partner-desc">${item.Description || ""}</textarea></td>
   `;
 
           partnerTbody.appendChild(tr);
-
           populatePartnerDropdowns();
 
           setTimeout(function () {
@@ -1730,6 +1670,7 @@ function loadExistingRecord(recordID) {
       console.error("loadExistingRecord error:", err);
     });
 }
+
 /* ─── Date string from Zoho (dd-Mon-yyyy or ISO) → yyyy-mm-dd for <input type="date"> ─── */
 function formatToYYYYMMDD(dateStr) {
   if (!dateStr) return "";
@@ -1763,6 +1704,7 @@ function formatToYYYYMMDD(dateStr) {
 
   return "";
 }
+
 /* =================================================================================
    LOAD CERTIFICATE SUBFORM ROWS
 ================================================================================= */
@@ -1818,16 +1760,11 @@ function loadCertificateSubform(recordID) {
 
           certTbody.appendChild(tr);
 
-          //////////////// Fetch file from zoho creator
-          // const fullUrl = window.location.origin + item.Certificate_Single;
-
           const fileCell = tr.querySelector(".cert-file-cell");
 
-          // console.log("item.Certificate_Single:", item.Certificate_Single);
           if (item.Certificate_Single) {
             const fullUrl =
               "https://creator.zoho.com" + item.Certificate_Single;
-            // console.log("Certificate subform response:", fullUrl)
 
             function getFileNameFromUrl(url) {
               try {
@@ -1863,11 +1800,8 @@ function loadCertificateSubform(recordID) {
           // Set saved dropdown values after options are injected
           setTimeout(function () {
             tr.querySelector(".cert-lab").value = item.Lab?.ID || "";
-
             tr.querySelector(".cert-lab-desc").value =
               item.Lab_Descriptor?.ID || "";
-            ("");
-
             tr.querySelector(".cert-lab-sup").value =
               item.Laboratory_Supplement?.ID || "";
           }, 300);
@@ -1879,82 +1813,3 @@ function loadCertificateSubform(recordID) {
       addCertificateRow();
     });
 }
-function saveRecord() {
-
-    const recId = new URLSearchParams(window.location.search).get("recId");
-
-    // Common payload
-    const recordData = {
-        "Memo_No": document.getElementById("memo_no").value || "",
-        "Stock_On_Hand": getNumber("Stock_On_Hand"),
-        "Status": document.getElementById("Status").value || ""
-    };
-
-    // ===============================
-    // 🔄 UPDATE
-    // ===============================
-    if (recId) {
-
-        console.log("REC ID:", recId);
-
-        ZOHO.CREATOR.DATA.updateRecordById({
-            app_name: "feiny-app",
-            report_name: "All_Lot_Master",
-            id: String(recId),
-            payload: {
-                data: recordData
-            }
-        })
-        .then(function (res) {
-            console.log("✅ Updated:", res);
-
-            if (res.code === 3000) {
-                alert("✅ Updated Successfully");
-            } else {
-                alert("❌ Update failed: " + (res.message || "Unknown error"));
-            }
-        })
-        .catch(function (error) {
-            console.error("❌ FINAL ERROR:", error);
-            alert("❌ Error while updating record");
-        });
-
-    } 
-    
-    // ===============================
-    // ➕ CREATE
-    // ===============================
-    else {
-
-        const config = {
-            app_name: "feiny-app",
-            form_name: "All_Lot_Master",
-            payload: {
-                data: recordData
-            }
-        };
-
-        ZOHO.CREATOR.DATA.addRecords(config)
-        .then(function (response) {
-
-            console.log("✅ Created:", response);
-
-            if (response.code === 3000) {
-
-                alert("✅ Record Saved Successfully");
-
-                const newId = response.data[0].ID; // ✅ FIX (array format)
-
-                window.location.href = "?recId=" + newId;
-
-            } else {
-                alert("❌ Error saving record: " + (response.message || "Unknown error"));
-            }
-
-        })
-        .catch(function (error) {
-            console.error("❌ Save Error:", error);
-            alert("❌ Error while saving record");
-        });
-    }
-} // ✅ saveMemo CLOSED
