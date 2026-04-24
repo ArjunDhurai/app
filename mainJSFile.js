@@ -1,4 +1,4 @@
-// Afru Version Reverse from cloud - Last version update: 2024-06-10
+// Afru Version Reverse from cloud 
 
 let certificateLookupCache = {
   labs: [],
