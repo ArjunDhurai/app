@@ -1,5 +1,4 @@
-// Afru Version Reverse from cloud - Pull test
-
+// Date: 2024-06-20 time: 12:00 PM  dddd
 let certificateLookupCache = {
   labs: [],
   descriptors: [],
@@ -1028,7 +1027,7 @@ function getNumber(id) {
 }
 
 /* =================================================================================
-   SAVE → ZOHO CREATOR (CUSTOM UPDATE/CREATE LOGIC)
+   Record Creation/ Updatation - data Mapping
 ================================================================================= */
 function saveRecord() {
   const recId = new URLSearchParams(window.location.search).get("recId");
@@ -1079,11 +1078,13 @@ function saveRecord() {
     Gub: document.getElementById("cert_gubelin")?.checked || false,
     SSEF: document.getElementById("cert_ssef")?.checked || false,
     Other: document.getElementById("cert_other")?.checked || false,
-    Description2:
-      document.getElementById("certificate_details")?.value || "",
+    Description2:document.getElementById("certificate_details")?.value || "",
     Price4: getNumber("Price4"),
     Minimum_Price: getNumber("MinimumPrice"),
     Unit: document.getElementById("unit_lookup")?.value || "",
+
+
+    
     Partnership_Details: getPartnerRowsData(),
     Shape3: document.getElementById("dia_shape")?.value || "",
     Color: document.getElementById("dia_color")?.value || "",
@@ -1093,8 +1094,7 @@ function saveRecord() {
     Culet: document.getElementById("dia_culet")?.value || "",
     Symmetry: document.getElementById("dia_symmetry")?.value || "",
     Fluorescence1: document.getElementById("dia_fluorescence")?.value || "",
-    Fluorescence_Color:
-      document.getElementById("dia_colour_fluorescence")?.value || "",
+    Fluorescence_Color:document.getElementById("dia_colour_fluorescence")?.value || "",
     Lab: document.getElementById("dia_lab")?.value || "",
     Length_mm: getNumber("dia_length"),
     Width_mm: getNumber("dia_width"),
@@ -1106,81 +1106,17 @@ function saveRecord() {
     Total_Price: getNumber("total_price"),
     Rapport_Price1: getNumber("rapport_price"),
     Quantity: getNumber("quantity"),
-    Short_Description1:
-      document.getElementById("diashort_description")?.value || "",
-    Long_Description2:
-      document.getElementById("dialong_description")?.value || "",
+    Short_Description1:document.getElementById("diashort_description")?.value || "",
+    Long_Description2:document.getElementById("dialong_description")?.value || "",
   };
 
   console.log("Saving config:", recordData);
+}
 
-  /* ===============================
-      🔄 UPDATE
+/* ===============================
+      ➕ CREATE - Record Creation - API CALL
   =============================== */
-  if (recId) {
-    console.log("REC ID:", recId);
-
-    ZOHO.CREATOR.DATA.updateRecordById({
-      app_name: "feiny-app",
-      form_name: "Lot_Master",
-      id: String(recId),
-      payload: {
-        data: recordData,
-      },
-    })
-      .then(function (res) {
-        console.log("✅ Updated:", res);
-
-        if (res.code === 3000 || res.code === "3000") {
-          alert("✅ Updated Successfully");
-
-          // Handle file uploads after update
-          let uploadPromises = [];
-          const certPromises = createCertificateRecords(In_SKU);
-          if (certPromises && certPromises.length > 0)
-            uploadPromises = uploadPromises.concat(certPromises);
-          if (recId && diaImageFile)
-            uploadPromises.push(uploadDiaImage(recId, diaImageFile));
-          if (recId && stoneImageFile)
-            uploadPromises.push(uploadStoneImage(recId, stoneImageFile));
-
-          return Promise.all(uploadPromises);
-        } else {
-          alert("❌ Update failed: " + (res.message || "Unknown error"));
-          throw new Error(res.message || "Update failed");
-        }
-      })
-      .then(function (uploadResults) {
-        console.log("Upload results:", uploadResults);
-        const successCount =
-          uploadResults?.filter((u) => u.type === "certificate" && u.success)
-            .length || 0;
-        let message = "Record updated successfully!";
-        if (successCount > 0)
-          message += ` ${successCount} certificate(s) created.`;
-        alert(message);
-        certificateFiles.clear();
-        certificateFilesToUpload = [];
-        ZOHO.CREATOR.UTIL.navigateTo({
-          url: "#Report:All_Lot_Master",
-          target: "same",
-        });
-      })
-      .catch(function (error) {
-        console.error("❌ FINAL ERROR:", error);
-        alert("❌ Error: " + error.message);
-      })
-      .finally(function () {
-        if (saveBtn) {
-          saveBtn.textContent = originalText;
-          saveBtn.disabled = false;
-        }
-      });
-  }
-  /* ===============================
-      ➕ CREATE
-  =============================== */
-  else {
+  if (!recId) {
     const config = {
       app_name: "feiny-app",
       form_name: "Lot_Master",
@@ -1264,27 +1200,7 @@ function saveRecord() {
           saveBtn.disabled = false;
         }
       });
-  }
-}
-
-/* ================= GET PARTNERSHIP SUBFORM DATA ================= */
-function getPartnerRowsData() {
-  const partnerRows = [];
-  document
-    .querySelectorAll("#partnerBody .partner-row")
-    .forEach(function (row) {
-      partnerRows.push({
-        Partnership_shares: row.querySelector(".partner-share")?.value || "",
-        Partnership: row.querySelector(".partner-percent")?.value || "",
-        Commission: row.querySelector(".commission-percent")?.value || "",
-        Commission_Itemized_on_Invoice:
-          row.querySelector(".commission-itemized")?.checked || false,
-      });
-    });
-  return partnerRows;
-}
-
-/* ================= CREATE CERTIFICATE RECORDS ================= */
+      /* ================= CREATE CERTIFICATE RECORDS ================= */
 function createCertificateRecords(skuValue) {
   const promises = [];
   const rows = document.querySelectorAll("#certificateBody tr");
@@ -1424,124 +1340,28 @@ function createCertificateRecords(skuValue) {
 
   return promises;
 }
+/* ================= GET PARTNERSHIP SUBFORM DATA ================= */
 
-/* ================= DIAMOND IMAGE UPLOAD ================= */
-function uploadDiaImage(recordId, file) {
-  return new Promise(function (resolve, reject) {
-    ZOHO.CREATOR.FILE.uploadFile({
-      app_name: "feiny-app",
-      report_name: "All_Lot_Master",
-      id: recordId,
-      field_name: "item_Image",
-      file: file,
-    })
-      .then(function (response) {
-        if (response.code === 3000 || response.code === "3000") {
-          setImagePreview(file);
-          ZOHO.CREATOR.DATA.invokeCustomApi({
-            api_name: "imageupload",
-            workspace_name: "ankit_feiny",
-            http_method: "POST",
-            content_type: "application/json",
-            payload: { IDd: recordId, fileFormat: file.name },
-            public_key: "2hXJDxEmMyekhJ7yFtrJV5n14",
-          })
-            .then((r) => console.log("Custom API SUCCESS:", r))
-            .catch((e) => console.error("Custom API ERROR:", e));
-          resolve({ type: "image", success: true });
-        } else {
-          reject(new Error(response.message || "Upload failed"));
-        }
-      })
-      .catch(reject);
-  });
+function getPartnerRowsData() {
+  const partnerRows = [];
+  document
+    .querySelectorAll("#partnerBody .partner-row")
+    .forEach(function (row) {
+      partnerRows.push({
+        Partnership_shares: row.querySelector(".partner-share")?.value || "",
+        Partnership: row.querySelector(".partner-percent")?.value || "",
+        Commission: row.querySelector(".commission-percent")?.value || "",
+        Commission_Itemized_on_Invoice:
+          row.querySelector(".commission-itemized")?.checked || false,
+      });
+    });
+  return partnerRows;
 }
-
-function setImagePreview(file) {
-  diaImageFile = file;
-  const preview = document.getElementById("imagePreview");
-  if (preview && file) {
-    preview.src = URL.createObjectURL(file);
-    preview.style.display = "block";
   }
-}
-
-const preview = document.getElementById("imagePreview");
-if (preview) {
-  preview.style.cursor = "pointer";
-  preview.onclick = function () {
-    if (preview.src) window.open(preview.src, "_blank");
-  };
-}
-
-/* ================= STONE IMAGE UPLOAD ================= */
-function uploadStoneImage(recordId, file) {
-  return new Promise(function (resolve, reject) {
-    ZOHO.CREATOR.FILE.uploadFile({
-      app_name: "feiny-app",
-      report_name: "All_Lot_Master",
-      id: recordId,
-      field_name: "item_Image",
-      file: file,
-    })
-      .then(function (response) {
-        if (response.code === 3000 || response.code === "3000") {
-          return ZOHO.CREATOR.DATA.invokeCustomApi({
-            api_name: "imageupload",
-            workspace_name: "ankit_feiny",
-            http_method: "POST",
-            content_type: "application/json",
-            payload: { IDd: recordId, fileFormat: file.name },
-            public_key: "2hXJDxEmMyekhJ7yFtrJV5n14",
-          });
-        } else {
-          throw new Error(response.message || "Stone image upload failed");
-        }
-      })
-      .then((r) => {
-        console.log("Stone custom API SUCCESS:", r);
-        resolve({ type: "stoneImage", success: true });
-      })
-      .catch(reject);
-  });
-}
-
-/* ================= UPLOAD CERTIFICATE FILE ================= */
-function uploadCertificateFile(recordId, file) {
-  return new Promise(function (resolve, reject) {
-    ZOHO.CREATOR.FILE.uploadFile({
-      app_name: "feiny-app",
-      report_name: "All_Certificate_Details",
-      id: recordId,
-      field_name: "Certificate_Single",
-      file: file,
-    })
-      .then(function (response) {
-        if (response.code === 3000 || response.code === "3000") {
-          resolve(response);
-          ZOHO.CREATOR.DATA.invokeCustomApi({
-            api_name: "asfd",
-            workspace_name: "ankit_feiny",
-            http_method: "POST",
-            content_type: "application/json",
-            payload: { IDd: recordId, fileFormat: response.data.filename },
-            public_key: "yUeF2jG7QJWCHXUaEuCQ91XvA",
-          })
-            .then((r) => console.log("Cert custom API SUCCESS:", r))
-            .catch((e) => console.error("Cert custom API ERROR:", e));
-        } else {
-          reject(
-            new Error(response.message || "Certificate file upload failed"),
-          );
-        }
-      })
-      .catch(reject);
-  });
-}
-
-/* =================================================================================
-   LOAD EXISTING RECORD (EDIT MODE)
-================================================================================= */
+  
+  /* ===============================
+      🔄 LOAD EXISTING RECORD (EDIT MODE)
+  =============================== */
 
 let lot_edit = false;
 
@@ -1813,3 +1633,194 @@ function loadCertificateSubform(recordID) {
       addCertificateRow();
     });
 }
+
+
+
+
+
+  /* ===============================
+      🔄 Record Updatation - data Mapping
+  =============================== */
+  // ZOHO.CREATOR.DATA.addRecords(config)
+  if (recId) {
+    console.log("REC ID:", recId);
+
+    ZOHO.CREATOR.DATA.updateRecordById({
+      app_name: "feiny-app",
+      report_name: "All_Lot_Master",
+      id: String(recId),
+      payload: {
+        data: recordData,
+      },
+    })
+      .then(function (res) {
+        console.log("✅ Updated:", res);
+
+        if (res.code === 3000 || res.code === "3000") {
+          alert("✅ Updated Successfully");
+
+          // Handle file uploads after update
+          let uploadPromises = [];
+          const certPromises = createCertificateRecords(In_SKU);
+          if (certPromises && certPromises.length > 0)
+            uploadPromises = uploadPromises.concat(certPromises);
+          if (recId && diaImageFile)
+            uploadPromises.push(uploadDiaImage(recId, diaImageFile));
+          if (recId && stoneImageFile)
+            uploadPromises.push(uploadStoneImage(recId, stoneImageFile));
+
+          return Promise.all(uploadPromises);
+        } else {
+          alert("❌ Update failed: " + (res.message || "Unknown error"));
+          throw new Error(res.message || "Update failed");
+        }
+      })
+      .then(function (uploadResults) {
+        console.log("Upload results:", uploadResults);
+        const successCount =
+          uploadResults?.filter((u) => u.type === "certificate" && u.success)
+            .length || 0;
+        let message = "Record updated successfully!";
+        if (successCount > 0)
+          message += ` ${successCount} certificate(s) created.`;
+        alert(message);
+        certificateFiles.clear();
+        certificateFilesToUpload = [];
+        ZOHO.CREATOR.UTIL.navigateTo({
+          url: "#Report:All_Lot_Master",
+          target: "same",
+        });
+      })
+      .catch(function (error) {
+        console.error("❌ FINAL ERROR:", error);
+        alert("❌ Error: " + error.message);
+      })
+      .finally(function () {
+        if (saveBtn) {
+          saveBtn.textContent = originalText;
+          saveBtn.disabled = false;
+        }
+      });
+  }
+  
+  
+
+
+
+
+
+/* ================= DIAMOND IMAGE UPLOAD ================= */
+function uploadDiaImage(recordId, file) {
+  return new Promise(function (resolve, reject) {
+    ZOHO.CREATOR.FILE.uploadFile({
+      app_name: "feiny-app",
+      report_name: "All_Lot_Master",
+      id: recordId,
+      field_name: "item_Image",
+      file: file,
+    })
+      .then(function (response) {
+        if (response.code === 3000 || response.code === "3000") {
+          setImagePreview(file);
+          ZOHO.CREATOR.DATA.invokeCustomApi({
+            api_name: "imageupload",
+            workspace_name: "ankit_feiny",
+            http_method: "POST",
+            content_type: "application/json",
+            payload: { IDd: recordId, fileFormat: file.name },
+            public_key: "2hXJDxEmMyekhJ7yFtrJV5n14",
+          })
+            .then((r) => console.log("Custom API SUCCESS:", r))
+            .catch((e) => console.error("Custom API ERROR:", e));
+          resolve({ type: "image", success: true });
+        } else {
+          reject(new Error(response.message || "Upload failed"));
+        }
+      })
+      .catch(reject);
+  });
+}
+
+function setImagePreview(file) {
+  diaImageFile = file;
+  const preview = document.getElementById("imagePreview");
+  if (preview && file) {
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+  }
+}
+
+const preview = document.getElementById("imagePreview");
+if (preview) {
+  preview.style.cursor = "pointer";
+  preview.onclick = function () {
+    if (preview.src) window.open(preview.src, "_blank");
+  };
+}
+
+/* ================= STONE IMAGE UPLOAD ================= */
+function uploadStoneImage(recordId, file) {
+  return new Promise(function (resolve, reject) {
+    ZOHO.CREATOR.FILE.uploadFile({
+      app_name: "feiny-app",
+      report_name: "All_Lot_Master",
+      id: recordId,
+      field_name: "item_Image",
+      file: file,
+    })
+      .then(function (response) {
+        if (response.code === 3000 || response.code === "3000") {
+          return ZOHO.CREATOR.DATA.invokeCustomApi({
+            api_name: "imageupload",
+            workspace_name: "ankit_feiny",
+            http_method: "POST",
+            content_type: "application/json",
+            payload: { IDd: recordId, fileFormat: file.name },
+            public_key: "2hXJDxEmMyekhJ7yFtrJV5n14",
+          });
+        } else {
+          throw new Error(response.message || "Stone image upload failed");
+        }
+      })
+      .then((r) => {
+        console.log("Stone custom API SUCCESS:", r);
+        resolve({ type: "stoneImage", success: true });
+      })
+      .catch(reject);
+  });
+}
+
+/* ================= UPLOAD CERTIFICATE FILE ================= */
+function uploadCertificateFile(recordId, file) {
+  return new Promise(function (resolve, reject) {
+    ZOHO.CREATOR.FILE.uploadFile({
+      app_name: "feiny-app",
+      report_name: "All_Certificate_Details",
+      id: recordId,
+      field_name: "Certificate_Single",
+      file: file,
+    })
+      .then(function (response) {
+        if (response.code === 3000 || response.code === "3000") {
+          resolve(response);
+          ZOHO.CREATOR.DATA.invokeCustomApi({
+            api_name: "asfd",
+            workspace_name: "ankit_feiny",
+            http_method: "POST",
+            content_type: "application/json",
+            payload: { IDd: recordId, fileFormat: response.data.filename },
+            public_key: "yUeF2jG7QJWCHXUaEuCQ91XvA",
+          })
+            .then((r) => console.log("Cert custom API SUCCESS:", r))
+            .catch((e) => console.error("Cert custom API ERROR:", e));
+        } else {
+          reject(
+            new Error(response.message || "Certificate file upload failed"),
+          );
+        }
+      })
+      .catch(reject);
+  });
+}
+
+
